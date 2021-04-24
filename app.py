@@ -1,7 +1,7 @@
 import argparse
 
 from pywebio.input import TEXT, input
-from pywebio.output import clear, put_html, put_markdown, put_table, put_text, style, use_scope
+from pywebio.output import clear, put_html, put_loading, put_markdown, put_table, put_text, style, use_scope
 from pywebio.platform.tornado_http import start_server
 from pywebio.session import set_env
 from sqlalchemy.orm import sessionmaker
@@ -14,7 +14,7 @@ def main():
     engine = db_connect()
     session = sessionmaker(bind=engine)()
 
-    set_env(title='Burplist', auto_scroll_bottom=True)
+    set_env(title='Burplist', auto_scroll_bottom=False)
     put_html(r"""<h1 align="center"><strong>Burplist</strong></h1>""")
     with use_scope('introduction'):
         put_html(r"""
@@ -60,11 +60,12 @@ def main():
         clear('result')
 
         # NOTE: Because the underlying SQL is using `to_tsquery`, we have to wrap our search text with single quotes
-        products = session.query(Product) \
-            .filter(Product.name.match(f"'{search}'")) \
-            .order_by(Product.price_per_quantity.asc()) \
-            .all()
-        session.close()
+        with style(put_loading(color='primary'), 'width:20rem; height:20rem; display:block; margin-left:auto; margin-right:auto;'):
+            products = session.query(Product) \
+                .filter(Product.name.match(f"'{search}'")) \
+                .order_by(Product.price_per_quantity.asc()) \
+                .all()
+            session.close()
 
         with use_scope('result'):
             if not products:
@@ -102,4 +103,4 @@ if __name__ == '__main__':
     parser.add_argument("-p", "--port", type=int, default=8080)
     args = parser.parse_args()
 
-    start_server(main, port=args.port)
+    start_server(main, port=args.port, debug=False)
