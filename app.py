@@ -13,14 +13,13 @@ def main():
     session = sessionmaker(bind=engine)()
 
     set_env(title='Burplist', auto_scroll_bottom=True)
-
-    with use_scope('root'):
+    put_html(r"""<h1 align="center"><strong>Burplist</strong></h1>""")
+    with use_scope('introduction'):
         put_html(r"""
-        <h1 align="center"><strong>Burplist</strong></h1>
         <style>
         .img {
-            width: 300;
-            height: 300px;
+            width: 250;
+            height: 280px;
             border:2px solid #fff;
             -moz-box-shadow: 10px 10px 5px #ccc;
             -webkit-box-shadow: 10px 10px 5px #ccc;
@@ -36,28 +35,27 @@ def main():
         </p>
         """)
 
-    with use_scope('introduction'):
         put_markdown(r"""
         ## What is this?
-        A collection of craft beer prices in Singapore 🇸🇬
-        The prices of all beers in Singapore at your fingertip, at your disposal 🍺
+        🇸🇬 A collection of craft beer prices in Singapore.
+        ☝️ Prices of **all** beers in Singapore at your fingertip.
 
         ## What is craft beer?
-        To simply put, craft beers are the more delicious alternative to your mainstream beers.
-        In terms of style, flavours and aroma, craft beer is much more diverse.
-        Craft beers are usually brewed in smaller quantities by passionate brewers who care more about quality than quantity.
+        🤤 To simply put, craft beers are the more **delicious** alternative to your mainstream beers.
+        🍻 In terms of styles, flavours and aroma, craft beers are usually more **diverse** in these aspects.
+        💁‍♂️ Craft beers are usually brewed in smaller quantities by passionate brewers who care more about **quality** than quantity.
         """, lstrip=True)
 
     while True:
         search = input(
             type=TEXT,
             required=True,
-            label='Start looking 🤩',
+            label='Start looking here 🤩',
             placeholder='Search for a beer name...',
             help_text='Try: Hitachino Nest White Ale',
         )
-        clear('result')
         clear('introduction')
+        clear('result')
 
         # NOTE: Because the underlying SQL is using `to_tsquery`, we have to wrap our search text with single quotes
         products = session.query(Product) \
@@ -68,7 +66,12 @@ def main():
 
         with use_scope('result'):
             if not products:
-                put_text('Oh no, we couldn\'t find anything relevant... 😢')
+                put_html("""
+                <p align="center">
+                    <img class="img" width="50%" height="50%" src="https://media.giphy.com/media/BEob5qwFkSJ7G/giphy.gif">
+                </p>
+                <h2 align="center">Oh no, we couldn\'t find anything relevant... 😢</h2>
+                """)
                 continue
 
             # Display the final result in a table
