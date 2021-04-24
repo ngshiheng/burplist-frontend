@@ -7,6 +7,7 @@ from pywebio.session import set_env
 from sqlalchemy.orm import sessionmaker
 
 from src.models import Product, db_connect
+from src.utils import validate_search_length
 
 engine = db_connect()
 session = sessionmaker(bind=engine)()
@@ -54,7 +55,8 @@ def main():
             required=True,
             label='Start looking here 🤩',
             placeholder='Search for a beer name...',
-            help_text='Try: Hitachino Nest White Ale',
+            help_text='Try: "Hitachino Nest White Ale"',
+            validate=validate_search_length,
         )
         clear('introduction')
         clear('result')
@@ -67,35 +69,38 @@ def main():
                 .all()
             session.close()
 
-        with use_scope('result'):
-            if not products:
-                put_html("""
-                <p align="center">
-                    <img class="img" width="50%" height="50%" src="https://media.giphy.com/media/BEob5qwFkSJ7G/giphy.gif">
-                </p>
-                <h2 align="center">Oh no, we couldn\'t find anything relevant... 😢</h2>
-                """)
-                continue
+            with use_scope('result'):
+                if not products:
+                    put_html(f"""
+                    <p align="center">
+                        <img class="img" width="50%" height="50%" src="https://media.giphy.com/media/BEob5qwFkSJ7G/giphy.gif">
+                    </p>
+                    <h2 align="center">😢 Oh no, we couldn\'t find anything relevant to "{search}"...</h2>
+                    """)
+                    continue
 
-            # Display the final result in a table
-            put_table(
-                tdata=[
-                    [
-                        product.vendor.title(),
-                        put_html(f'<a href="{product.url}" target="_blank">{product.name}</a>'),
-                        f'{product.last_price:.2f}',
-                        product.quantity,
-                        style(put_text(f'{product.price_per_quantity:.2f}'), 'color:red'),
-                    ] for product in products
-                ],
-                header=[
-                    'Vendor',
-                    'Name',
-                    'Price ($SGD)',
-                    'Quantity',
-                    'Price/Quantity ($SGD)',
-                ],
-            )
+                put_html(f"""
+                <h2 align="center">🔍 Here are your results for "{search}"...</h2>
+                """)
+                # Display the final result in a table
+                put_table(
+                    tdata=[
+                        [
+                            product.vendor.title(),
+                            put_html(f'<a href="{product.url}" target="_blank">{product.name}</a>'),
+                            f'{product.last_price:.2f}',
+                            product.quantity,
+                            style(put_text(f'{product.price_per_quantity:.2f}'), 'color:red'),
+                        ] for product in products
+                    ],
+                    header=[
+                        'Vendor',
+                        'Name',
+                        'Price ($SGD)',
+                        'Quantity',
+                        'Price/Quantity ($SGD)',
+                    ],
+                )
 
 
 if __name__ == '__main__':
