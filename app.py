@@ -40,12 +40,11 @@ def main():
         put_markdown(r"""
         ## What is this?
         A collection of craft beer prices in Singapore 🇸🇬
-        The prices of all beers in Singapore at your fingertip 🍺
+        The prices of all beers in Singapore at your fingertip, at your disposal 🍺
 
         ## What is craft beer?
-        To simply put, craft beers are the more delicious alternative to mainstream, mass-market beers.
-        In terms of flavours and aroma, craft beer is much more diverse
-        Craft beer is much more diverse in styles and distinctive in characters, flavours and aroma.
+        To simply put, craft beers are the more delicious alternative to your mainstream beers.
+        In terms of style, flavours and aroma, craft beer is much more diverse.
         Craft beers are usually brewed in smaller quantities by passionate brewers who care more about quality than quantity.
         """, lstrip=True)
 
@@ -53,7 +52,7 @@ def main():
         search = input(
             type=TEXT,
             required=True,
-            label='Start looking 🍻',
+            label='Start looking 🤩',
             placeholder='Search for a beer name...',
             help_text='Try: Hitachino Nest White Ale',
         )
