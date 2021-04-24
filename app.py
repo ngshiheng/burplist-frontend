@@ -82,7 +82,7 @@ def main():
                 tdata=[
                     [
                         product.vendor.title(),
-                        put_markdown(f'[{product.name}]({product.url})'),
+                        put_html(f'<a href="{product.url}" target="_blank">{product.name}</a>'),
                         f'{product.last_price:.2f}',
                         product.quantity,
                         style(put_text(f'{product.price_per_quantity:.2f}'), 'color:red'),
