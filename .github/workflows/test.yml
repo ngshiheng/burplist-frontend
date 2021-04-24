@@ -26,4 +26,4 @@ jobs:
             - name: Run checks
               run: |
                   pipenv run flake8 --ignore E501 --statistics --show-source
-                  pipenv run pylint --disable=C0301,W0622,E1101,C0114,C0116
+                  pipenv run pylint app.py --disable=C0301,W0622,E1101,C0114,C0116
