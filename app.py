@@ -1,6 +1,8 @@
-from pywebio import start_server
+import argparse
+
 from pywebio.input import TEXT, input
 from pywebio.output import clear, put_html, put_markdown, put_table, put_text, style, use_scope
+from pywebio.platform.tornado_http import start_server
 from pywebio.session import set_env
 from sqlalchemy.orm import sessionmaker
 
@@ -96,4 +98,8 @@ def main():
 
 
 if __name__ == '__main__':
-    start_server(main, debug=True, port=8080, cdn=False)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--port", type=int, default=8080)
+    args = parser.parse_args()
+
+    start_server(main, port=args.port)
