@@ -8,13 +8,13 @@ from sqlalchemy.orm import sessionmaker
 
 from src.models import Product, db_connect
 
+engine = db_connect()
+session = sessionmaker(bind=engine)()
+
 
 def main():
-    # Connects to a database session
-    engine = db_connect()
-    session = sessionmaker(bind=engine)()
-
     set_env(title='Burplist', auto_scroll_bottom=False)
+
     put_html(r"""<h1 align="center"><strong>Burplist</strong></h1>""")
     with use_scope('introduction'):
         put_html(r"""
