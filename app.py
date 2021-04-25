@@ -72,12 +72,24 @@ def main():
 
             with use_scope('result'):
                 if not products:
-                    put_html(f"""
+                    put_html(r"""
+                     <style>
+                    .img {
+                        width: 250;
+                        height: 280px;
+                        border:2px solid #fff;
+                        -moz-box-shadow: 10px 10px 5px #ccc;
+                        -webkit-box-shadow: 10px 10px 5px #ccc;
+                        box-shadow: 10px 10px 5px #ccc;
+                        -moz-border-radius:25px;
+                        -webkit-border-radius:25px;
+                        border-radius:25px;
+                    }
+                    </style>
                     <p align="center">
                         <img class="img" width="50%" height="50%" src="https://media.giphy.com/media/BEob5qwFkSJ7G/giphy.gif">
-                    </p>
-                    <h2 align="center">😢 Oh no, we couldn\'t find anything relevant to "{search}"...</h2>
-                    """)
+                    </p>""")
+                    put_html(f'<h2 align="center">😢 Oh no, we couldn\'t find anything relevant to "{search}"...</h2>')
                     continue
 
                 put_html(f"""
