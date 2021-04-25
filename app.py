@@ -15,8 +15,9 @@ session = sessionmaker(bind=engine)()
 
 def main():
     set_env(title='Burplist', auto_scroll_bottom=False)
-
-    put_html(r"""<h1 align="center"><strong>Burplist</strong></h1>""")
+    put_html(r"""
+    <h1 align="center"><strong>Burplist</strong></h1>
+    """)
     with use_scope('introduction'):
         put_html(r"""
         <style>
@@ -41,7 +42,7 @@ def main():
         put_markdown(r"""
         ## What is this?
         🇸🇬 A collection of craft beer prices in Singapore.
-        ☝️ Prices of **all** beers in Singapore at your fingertip.
+        🖐 Prices of **all** beers in Singapore at your fingertips.
 
         ## What is craft beer?
         🤤 To simply put, craft beers are the more **delicious** alternative to your mainstream beers.
@@ -53,7 +54,7 @@ def main():
         search = input(
             type=TEXT,
             required=True,
-            label='Start looking here 🤩',
+            label='🤩 Start looking here:',
             placeholder='Search for a beer name...',
             help_text='Try: "Hitachino Nest White Ale"',
             validate=validate_search_length,
