@@ -2,6 +2,7 @@ import argparse
 
 from pywebio.input import TEXT, input
 from pywebio.output import clear, put_html, put_loading, put_markdown, put_table, put_text, style, use_scope
+from pywebio.platform import seo
 from pywebio.platform.tornado_http import start_server
 from pywebio.session import set_env
 from sqlalchemy.orm import sessionmaker
@@ -13,8 +14,9 @@ engine = db_connect()
 session = sessionmaker(bind=engine)()
 
 
+@seo('Burplist', 'Beer prices at your fingertips')
 def main():
-    set_env(title='Burplist', auto_scroll_bottom=False)
+    set_env(auto_scroll_bottom=False)
     put_html(r"""
     <h1 align="center"><strong>Burplist</strong></h1>
     """)
