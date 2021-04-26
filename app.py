@@ -18,14 +18,20 @@ session = sessionmaker(bind=engine)()
 def main():
     set_env(auto_scroll_bottom=False)
     put_html(r"""
+    <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8667164348741019"
+     crossorigin="anonymous"></script>
+    </head>
     <h1 align="center"><strong>Burplist</strong></h1>
     """)
     with use_scope('introduction'):
         put_html(r"""
         <style>
         .img {
-            width: 250;
-            height: 280px;
+            width: auto;
+            height: auto;
+            max-width: 250;
+            max-height: 280px;
             border:2px solid #fff;
             -moz-box-shadow: 10px 10px 5px #ccc;
             -webkit-box-shadow: 10px 10px 5px #ccc;
@@ -77,8 +83,10 @@ def main():
                     put_html(r"""
                      <style>
                     .img {
-                        width: 250;
-                        height: 280px;
+                        width: auto;
+                        height: auto;
+                        max-width: 250;
+                        max-height: 280px;
                         border:2px solid #fff;
                         -moz-box-shadow: 10px 10px 5px #ccc;
                         -webkit-box-shadow: 10px 10px 5px #ccc;
@@ -101,7 +109,6 @@ def main():
                 put_table(
                     tdata=[
                         [
-                            product.vendor.title(),
                             put_html(f'<a href="{product.url}" target="_blank">{product.name}</a>'),
                             f'{product.last_price:.2f}',
                             product.quantity,
@@ -109,11 +116,10 @@ def main():
                         ] for product in products
                     ],
                     header=[
-                        'Vendor',
                         'Name',
                         'Price ($SGD)',
-                        'Quantity',
-                        'Price/Quantity ($SGD)',
+                        'Qty.',
+                        'Price/Qty. ($SGD)',
                     ],
                 )
 
