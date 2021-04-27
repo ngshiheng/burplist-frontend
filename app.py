@@ -4,7 +4,7 @@ from pywebio.input import TEXT, input
 from pywebio.output import clear, put_html, put_loading, put_markdown, put_table, put_text, style, use_scope
 from pywebio.platform import seo
 from pywebio.platform.tornado_http import start_server
-from pywebio.session import set_env
+from pywebio.session import run_js, set_env
 from sqlalchemy.orm import sessionmaker
 
 from src.models import Product, db_connect
@@ -17,11 +17,10 @@ session = sessionmaker(bind=engine)()
 @seo('Burplist', 'Beer prices at your fingertips')
 def main():
     set_env(auto_scroll_bottom=False)
+    run_js("""
+    $('head').append('<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8667164348741019" crossorigin="anonymous"></script>')
+    """)
     put_html(r"""
-    <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8667164348741019"
-     crossorigin="anonymous"></script>
-    </head>
     <h1 align="center"><strong>Burplist</strong></h1>
     """)
     with use_scope('introduction'):
@@ -48,11 +47,11 @@ def main():
         """)
 
         put_markdown(r"""
-        ## What is this?
+        # What is this?
         🇸🇬 A collection of craft beer prices in Singapore.
         🖐 Prices of **all** beers in Singapore at your fingertips.
 
-        ## What is craft beer?
+        # What is craft beer?
         🤤 To simply put, craft beers are the more **delicious** alternative to your mainstream beers.
         🍻 In terms of styles, flavours and aroma, craft beers are usually more **diverse** in these aspects.
         💁‍♂️ Craft beers are usually brewed in smaller quantities by passionate brewers who care more about **quality** than quantity.
