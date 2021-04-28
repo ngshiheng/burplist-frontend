@@ -5,6 +5,7 @@ import tornado.web
 from pywebio.platform.tornado import webio_handler
 
 from src.index import index
+from src.terms import terms
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -13,6 +14,7 @@ if __name__ == '__main__':
 
     application = tornado.web.Application([
         (r'/', webio_handler(index)),
+        (r'/terms', webio_handler(terms)),
     ])
 
     application.listen(port=args.port)

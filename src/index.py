@@ -1,9 +1,6 @@
-import argparse
-
 from pywebio.input import TEXT, input
 from pywebio.output import clear, put_html, put_loading, put_markdown, put_table, put_text, style, use_scope
 from pywebio.platform import seo
-from pywebio.platform.tornado_http import start_server
 from pywebio.session import run_js, set_env
 from sqlalchemy.orm import sessionmaker
 
@@ -20,6 +17,7 @@ def index():
     run_js("""
     $('head').append('<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8667164348741019" crossorigin="anonymous"></script>')
     $('footer').html('<a href="mailto:jerry@burplist.me">Contact Us</a>')
+    $("link[rel*='icon']").attr("href", "favicon.ico");
     """)
     put_html(r"""
     <h1 align="center"><strong>Burplist</strong></h1>
@@ -122,11 +120,3 @@ def index():
                         'Price/Qty. ($SGD)',
                     ],
                 )
-
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-p", "--port", type=int, default=8080)
-    args = parser.parse_args()
-
-    start_server(index, port=args.port, debug=False)
