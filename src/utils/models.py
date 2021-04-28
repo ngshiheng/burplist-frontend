@@ -37,8 +37,7 @@ class Price(Base):
     __tablename__ = 'price'
 
     id = Column(Integer, primary_key=True)
-    product_id = Column(Integer, ForeignKey(
-        'product.id'), nullable=False, index=True)
+    product_id = Column(Integer, ForeignKey('product.id'), nullable=False, index=True)
     product = relationship('Product', backref='prices', cascade='delete')
 
     price = Column('price', Float)
