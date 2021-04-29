@@ -23,13 +23,16 @@ DATABASE_CONNECTION_STRING = '{drivername}://{user}:{password}@{host}:{port}/{db
 
 def db_connect():
     """
-    Performs database connection using database settings from settings.py.
+    Performs database connection using database settings from settings.py
     Returns sqlalchemy engine instance
     """
     return create_engine(DATABASE_CONNECTION_STRING)
 
 
 def create_table(engine):
+    """
+    Creates database table
+    """
     Base.metadata.create_all(engine)
 
 
@@ -53,7 +56,7 @@ class Product(Base):
 
     id = Column(Integer, primary_key=True)
     vendor = Column('vendor', String())
-    name = Column('name', String())
+    name = Column('name', String(), index=True)
     quantity = Column('quantity', Integer())
     url = Column('url', String())
     created_on = Column(DateTime, default=datetime.datetime.utcnow)

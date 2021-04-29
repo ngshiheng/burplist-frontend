@@ -5,17 +5,23 @@ import tornado.web
 from pywebio.platform.tornado import webio_handler
 
 from src.index import index
+from src.privacy import privacy
 from src.terms import terms
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--port', type=int, default=8080)
+    parser.add_argument('-d', '--debug', type=bool, default=False)
     args = parser.parse_args()
 
-    application = tornado.web.Application([
-        (r'/', webio_handler(index)),
-        (r'/terms', webio_handler(terms)),
-    ])
+    application = tornado.web.Application(
+        [
+            (r'/', webio_handler(index)),
+            (r'/terms', webio_handler(terms)),
+            (r'/privacy', webio_handler(privacy)),
+        ],
+        debug=args.debug,
+    )
 
     application.listen(port=args.port)
     tornado.ioloop.IOLoop.current().start()
