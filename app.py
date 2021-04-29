@@ -24,7 +24,7 @@ if __name__ == '__main__':
     settings = dict(
         site_title='Burplist',
         debug=args.debug,
-        allowed_origins=['*']
+        host='burplist-frontend.herokuapp.com',
     )
 
     application = tornado.web.Application([
