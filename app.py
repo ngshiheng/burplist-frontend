@@ -3,6 +3,7 @@ import argparse
 import tornado.ioloop
 import tornado.web
 from pywebio.platform.tornado import webio_handler
+from tornado.httpserver import HTTPServer
 
 from src.index import index
 from src.privacy import privacy
@@ -23,5 +24,6 @@ if __name__ == '__main__':
         debug=args.debug,
     )
 
-    application.listen(port=args.port)
-    tornado.ioloop.IOLoop.current().start()
+    http_server = HTTPServer(application)
+    http_server.listen(port=args.port)
+    tornado.ioloop.IOLoop.instance().start()
