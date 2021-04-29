@@ -1,23 +1,34 @@
 <h1 align="center"><strong>Burplist Frontend</strong></h1>
 
 <p align="center">
-  <img width="300" height="300" src="https://media.giphy.com/media/DGWAx8d3IkICs/giphy.gif">
+  <img width=auto height=auto src="https://media.giphy.com/media/DGWAx8d3IkICs/giphy.gif">
 </p>
 <br />
 
-> Collect all the available beers (preferably craft beers 🍻) data in Singapore into a single place so that users can easy compare prices across different vendors and shops.
+# What is this?
 
-## MVP Flow
+🇸🇬 A collection of craft beer prices in Singapore.
 
-1. User enters a search string, i.e. "Road Hog"
-2. Input used as a string for full text search in PostgreSQL via SQLAlchemy
-3. Returns the result in table
-4. Display it back to the user
+🖐 Prices of **all** beers in Singapore at your fingertips.
 
-## Development
+# What is craft beer?
+
+🤤 To simply put, craft beers are the more **delicious** alternative to your mainstream beers.
+
+🍻 In terms of styles, flavours and aroma, craft beers are usually more **diverse** in these aspects.
+
+💁‍♂️ Craft beers are usually brewed in smaller quantities by passionate brewers who care more about **quality** than quantity.
+
+# Development
 
 How to run locally
 
 ```
-pipenv run python3 app.py
+pipenv run python3 app.py --debug=True --port=8080
 ```
+
+# Deployment
+
+This project is currently hosted on Heroku, proxied by Cloudflare [here](burplist.me)
+
+[Heroku dashboard Link](https://dashboard.heroku.com/apps/burplist-frontend)
