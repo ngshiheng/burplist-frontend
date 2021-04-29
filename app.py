@@ -24,6 +24,7 @@ if __name__ == '__main__':
     settings = dict(
         site_title='Burplist',
         debug=args.debug,
+        allowed_origins=['*']
     )
 
     application = tornado.web.Application([
