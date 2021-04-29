@@ -15,7 +15,7 @@ class FourOhFourHandler(tornado.web.RequestHandler):
         self.render('src/templates/404.html')
 
 
-def main():
+if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--port', type=int, default=8080)
     parser.add_argument('-d', '--debug', type=bool, default=False)
@@ -23,7 +23,7 @@ def main():
 
     settings = dict(
         site_title='Burplist',
-        debug=True,
+        debug=args.debug,
     )
 
     application = tornado.web.Application([
@@ -34,10 +34,5 @@ def main():
 
     ], **settings)
 
-    http_server = tornado.httpserver.HTTPServer(application)
-    http_server.listen(args.port)
-    tornado.ioloop.IOLoop.instance().start()
-
-
-if __name__ == '__main__':
-    main()
+    application.listen(args.port)
+    tornado.ioloop.IOLoop.current().start()
