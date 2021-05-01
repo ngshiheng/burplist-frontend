@@ -15,9 +15,7 @@ session = sessionmaker(bind=engine)()
 def index() -> None:
     set_env(auto_scroll_bottom=False)
     run_js("""
-    $('head').append('<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8667164348741019" crossorigin="anonymous"></script>')
     $('footer').html('📬 <a href="mailto:jerry@burplist.me">Contact Us</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
-    $("link[rel*='icon']").attr("href", "https://img.icons8.com/plasticine/100/000000/beer-glass.png");
     """)
     put_html(r"""
     <h1 align="center"><strong>Burplist</strong></h1>

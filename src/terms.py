@@ -6,7 +6,7 @@ from pywebio.session import run_js
 @seo('Burplist', 'Beer prices at your fingertips')
 def terms() -> None:
     run_js("""
-    $('footer').html('📬<a href="mailto:jerry@burplist.me">Contact Us</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
+    $('footer').html('📬 <a href="mailto:jerry@burplist.me">Contact Us</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
     $("link[rel*='icon']").attr("href", "https://img.icons8.com/plasticine/100/000000/beer-glass.png");
     """)
 
@@ -14,7 +14,7 @@ def terms() -> None:
     Terms of Service
     ================
 
-    Last revised on 28 April 2021
+    Last revised on 1 May 2021
 
     ### The Gist
 

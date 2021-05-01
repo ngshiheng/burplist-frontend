@@ -6,15 +6,14 @@ from pywebio.session import run_js
 @seo('Burplist', 'Beer prices at your fingertips')
 def privacy() -> None:
     run_js("""
-    $('footer').html('📬<a href="mailto:jerry@burplist.me">Contact Us</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
-    $("link[rel*='icon']").attr("href", "https://img.icons8.com/plasticine/100/000000/beer-glass.png");
+    $('footer').html('📬 <a href="mailto:jerry@burplist.me">Contact Us</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
     """)
 
     put_markdown(r"""
     Privacy Policy
     ================
 
-    Last revised on 28 April 2021
+    Last revised on 1 May 2021
 
     ### Privacy Policy
 

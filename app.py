@@ -10,7 +10,7 @@ from src.privacy import privacy
 from src.terms import terms
 
 define('port', default=8080, help='Run on the given port', type=int)
-define('debug', default=False, help='Run on the deug mode', type=bool)
+define('debug', default=False, help='Run on the debug mode', type=bool)
 
 
 class FourOhFourHandler(tornado.web.RequestHandler):
