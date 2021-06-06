@@ -1,5 +1,7 @@
 import logging
 from datetime import datetime, timedelta
+from functools import lru_cache
+from typing import List
 
 from pywebio.input import TEXT, input
 from pywebio.output import clear, put_html, put_loading, put_markdown, put_table, put_text, style, use_scope
@@ -16,6 +18,20 @@ logger = logging.getLogger(__name__)
 
 engine = db_connect()
 session = sessionmaker(bind=engine)()
+
+
+@lru_cache()
+def get_product_based_on_query(search: str) -> List[Product]:
+    return session.query(Product) \
+        .filter(
+        or_(
+            Product.brand.match(f"'{search}'"),
+            Product.style.match(f"'{search}'"),
+            Product.name.match(f"'{search}'"),
+        ),
+        and_(Product.updated_on >= datetime.utcnow() - timedelta(weeks=1)))  \
+        .order_by(Product.price_per_quantity) \
+        .all()
 
 
 @seo('Burplist', 'Craft beer prices at your fingertips')
@@ -91,16 +107,7 @@ def index() -> None:
         with style(put_loading(color='primary'), 'width:20rem; height:20rem; display:block; margin-left:auto; margin-right:auto;'):
             products = []
             try:
-                products = session.query(Product) \
-                    .filter(
-                        or_(
-                            Product.brand.match(f"'{search}'"),
-                            Product.style.match(f"'{search}'"),
-                            Product.name.match(f"'{search}'"),
-                        ),
-                        and_(Product.updated_on >= datetime.utcnow() - timedelta(weeks=1)))  \
-                    .order_by(Product.price_per_quantity) \
-                    .all()
+                products = get_product_based_on_query(str(search))
 
             except Exception as error:
                 logger.exception(error)
