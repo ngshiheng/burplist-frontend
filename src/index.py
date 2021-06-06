@@ -2,6 +2,7 @@ from pywebio.input import TEXT, input
 from pywebio.output import clear, put_html, put_loading, put_markdown, put_table, put_text, style, use_scope
 from pywebio.platform import seo
 from pywebio.session import run_js, set_env
+from sqlalchemy import or_
 from sqlalchemy.orm import sessionmaker
 
 from src.utils.models import Product, db_connect
@@ -59,17 +60,17 @@ def index() -> None:
             type=TEXT,
             required=True,
             label='🤩 Start looking here:',
-            placeholder='Search for a beer name...',
-            help_text='Try: "Hitachino Nest White Ale"',
+            placeholder='Search for a beer brand, style, or name...',
+            help_text='Try: "BrewDog", "IPA", or "Hitachino Nest White Ale" ✌️',
             validate=validate_search_length,
         )
-        clear('introduction')
         clear('result')
+        clear('introduction')
 
         # NOTE: Because the underlying SQL is using `to_tsquery`, we have to wrap our search text with single quotes
         with style(put_loading(color='primary'), 'width:20rem; height:20rem; display:block; margin-left:auto; margin-right:auto;'):
             products = session.query(Product) \
-                .filter(Product.name.match(f"'{search}'")) \
+                .filter(or_(Product.brand.match(f"'{search}'"), Product.style.match(f"'{search}'"), Product.name.match(f"'{search}'")))  \
                 .order_by(Product.price_per_quantity.asc()) \
                 .all()
             session.close()
@@ -106,6 +107,7 @@ def index() -> None:
                     tdata=[
                         [
                             put_html(f'<a href="{product.url}" target="_blank">{product.name}</a>'),
+                            product.style if product.style else '😬',
                             f'{product.last_price:.2f}',
                             product.quantity,
                             style(put_text(f'{product.price_per_quantity:.2f}'), 'color:red'),
@@ -113,8 +115,9 @@ def index() -> None:
                     ],
                     header=[
                         'Name',
-                        'Price ($SGD)',
+                        'Style',
+                        'Price\n($SGD)',
                         'Qty.',
-                        'Price/Qty. ($SGD)',
+                        'Price/Qty.\n($SGD)',
                     ],
                 )
