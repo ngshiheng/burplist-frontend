@@ -31,7 +31,7 @@ def get_product_based_on_query(search: str) -> List[Product]:
         ),
         and_(Product.updated_on >= datetime.utcnow() - timedelta(weeks=1)))  \
         .order_by(Product.price_per_quantity) \
-        .all()
+        .limit(50)
 
 
 @seo('Burplist', 'Craft beer prices at your fingertips.')
@@ -54,7 +54,7 @@ def index() -> None:
             required=True,
             label='🤩 Start looking here:',
             placeholder='Search for a beer brand, style, or name...',
-            help_text='Try: "BrewDog", "IPA", or "Hitachino Nest White Ale" ✌️',
+            help_text='Try: "Little Creatures", "IPA", or "Brewlander Love Wild IPA" ✌️',
             validate=validate_search_length,
         )
         clear('result')
@@ -65,6 +65,7 @@ def index() -> None:
             products = []
             try:
                 products = get_product_based_on_query(str(search))
+                logger.info(get_product_based_on_query.cache_info())
 
             except Exception as error:
                 logger.exception(error)
