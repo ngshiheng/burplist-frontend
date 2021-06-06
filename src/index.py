@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime, timedelta
 
 from pywebio.input import TEXT, input
@@ -10,6 +11,8 @@ from sqlalchemy.orm import sessionmaker
 from src.utils.constants import icon_url, mail_to
 from src.utils.models import Product, db_connect
 from src.utils.validators import validate_search_length
+
+logger = logging.getLogger(__name__)
 
 engine = db_connect()
 session = sessionmaker(bind=engine)()
@@ -86,6 +89,7 @@ def index() -> None:
 
         # NOTE: Because the underlying SQL is using `to_tsquery`, we have to wrap our search text with single quotes
         with style(put_loading(color='primary'), 'width:20rem; height:20rem; display:block; margin-left:auto; margin-right:auto;'):
+            products = []
             try:
                 products = session.query(Product) \
                     .filter(
@@ -97,6 +101,9 @@ def index() -> None:
                         and_(Product.updated_on >= datetime.utcnow() - timedelta(weeks=1)))  \
                     .order_by(Product.price_per_quantity) \
                     .all()
+
+            except Exception as error:
+                logger.exception(error)
 
             finally:
                 session.close()

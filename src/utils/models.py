@@ -84,4 +84,4 @@ class Product(Base):
         return self.last_price / self.quantity
 
     def __repr__(self) -> str:
-        return f'Product({self.name}, vendor={self.vendor})'
+        return f'Product({self.name}, platform={self.platform})'
