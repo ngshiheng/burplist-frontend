@@ -32,3 +32,11 @@ pipenv run python3 app.py --debug=True --port=8080
 This project is currently hosted on Heroku, proxied by Cloudflare [here](burplist.me)
 
 [Heroku dashboard Link](https://dashboard.heroku.com/apps/burplist-frontend)
+
+```sh
+# Print logs for staging
+heroku logs --tail --remote staging
+
+# Print logs for production
+heroku logs --tail --remote heroku
+```

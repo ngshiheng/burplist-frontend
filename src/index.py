@@ -31,7 +31,8 @@ def get_product_based_on_query(search: str) -> List[Product]:
         ),
         and_(Product.updated_on >= datetime.utcnow() - timedelta(weeks=1)))  \
         .order_by(Product.price_per_quantity) \
-        .limit(50)
+        .limit(50) \
+        .all()
 
 
 @seo('Burplist', 'Craft beer prices at your fingertips.')
@@ -80,13 +81,13 @@ def index() -> None:
                     continue
 
                 put_html(f"""
-                <h2 align="center">🔍 Here are your results for "{search}"...</h2>
+                <h2 align="center">🔍 Found {len(products)} results for "{search}"...</h2>
                 """)
                 # Display the final result in a table
                 put_table(
                     tdata=[
                         [
-                            put_html(f'<a href="{product.url}" target="_blank">🍺 {product.name}</a>'),
+                            put_html(f'🍺 <a href="{product.url}" target="_blank">{product.name}</a>'),
                             product.style if product.style else '😬',
                             f'{product.last_price:.2f}',
                             product.quantity,
