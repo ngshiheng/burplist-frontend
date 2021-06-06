@@ -2,21 +2,13 @@ from pywebio.output import put_markdown
 from pywebio.platform import seo
 from pywebio.session import run_js
 
-from src.utils.constants import icon_url, mail_to
+from src.utils.constants import footer, header
 
 
 @seo('Burplist', 'Beer prices at your fingertips')
 def privacy() -> None:
-    # Update favicon
-    run_js(f"""
-    $('#favicon32,#favicon16').remove();
-    $('head').append('<link rel="icon" type="image/x-icon" href="{icon_url}">')
-    """)
-
-    # Update footer
-    run_js(f"""
-    $('footer').html('📬 <a href="mailto:{mail_to}">Contact Us</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
-    """)
+    run_js(header)
+    run_js(footer)
 
     put_markdown(r"""
     Privacy Policy

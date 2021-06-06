@@ -10,7 +10,7 @@ from pywebio.session import run_js, set_env
 from sqlalchemy import and_, or_
 from sqlalchemy.orm import sessionmaker
 
-from src.utils.constants import icon_url, mail_to
+from src.utils.constants import footer, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
 from src.utils.models import Product, db_connect
 from src.utils.validators import validate_search_length
 
@@ -34,62 +34,19 @@ def get_product_based_on_query(search: str) -> List[Product]:
         .all()
 
 
-@seo('Burplist', 'Craft beer prices at your fingertips')
+@seo('Burplist', 'Craft beer prices at your fingertips.')
 def index() -> None:
     set_env(auto_scroll_bottom=False)
 
-    # Update favicon
-    run_js(f"""
-    $('#favicon32,#favicon16').remove();
-    $('head').append('<link rel="icon" type="image/x-icon" href="{icon_url}">')
-    """)
+    # JavaScript stuffs
+    run_js(header)
+    run_js(footer)
 
-    # Update footer
-    run_js(f"""
-    $('footer').html('📬 <a href="mailto:{mail_to}">Contact Us</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
-    """)
-
-    # Page title
-    put_html(r"""
-    <h1 align="center"><strong>Burplist</strong></h1>
-    """)
+    # Page heading
+    put_html(landing_page_heading)
     with use_scope('introduction'):
-        put_html(r"""
-        <style>
-        .img {
-            width: auto;
-            height: auto;
-            max-width: 250;
-            max-height: 280px;
-            border:2px solid #fff;
-            -moz-box-shadow: 10px 10px 5px #ccc;
-            -webkit-box-shadow: 10px 10px 5px #ccc;
-            box-shadow: 10px 10px 5px #ccc;
-            -moz-border-radius:25px;
-            -webkit-border-radius:25px;
-            border-radius:25px;
-        }
-        </style>
-
-        <p align="center">
-            <img class="img" width="50%" height="50%" src="https://media.giphy.com/media/l3c5RJr6yRKyyIw00/giphy.gif">
-        </p>
-        """)
-
-        put_markdown(r"""
-        # What is this?
-        🇸🇬 A collection of **craft beer** prices in Singapore at your finger tips.
-        🔎 Think of it as a **search engine** for craft beers in Singapore.
-
-        # What is craft beer?
-        🤤 To simply put, craft beers are the more **delicious** alternative to your mainstream beers.
-        🍻 In terms of styles, flavours and aroma, craft beers are usually more **diverse** in these aspects.
-        💁‍♂️ Craft beers are usually brewed in smaller quantities by passionate brewers who care more about **quality** than quantity.
-
-        # How to use?
-        ✍️ Simply enter any beer _brand_, _style_, or _name_ that you want in the search bar and hit "Submit".
-        🤑 Prices are ordered starting **from the lowest** to highest.
-        """, lstrip=True)
+        put_html(landing_page_gif)
+        put_markdown(landing_page_description, lstrip=True)
 
     while True:
         search = input(
@@ -117,25 +74,7 @@ def index() -> None:
 
             with use_scope('result'):
                 if not products:
-                    put_html(r"""
-                     <style>
-                    .img {
-                        width: auto;
-                        height: auto;
-                        max-width: 250;
-                        max-height: 280px;
-                        border:2px solid #fff;
-                        -moz-box-shadow: 10px 10px 5px #ccc;
-                        -webkit-box-shadow: 10px 10px 5px #ccc;
-                        box-shadow: 10px 10px 5px #ccc;
-                        -moz-border-radius:25px;
-                        -webkit-border-radius:25px;
-                        border-radius:25px;
-                    }
-                    </style>
-                    <p align="center">
-                        <img class="img" width="50%" height="50%" src="https://media.giphy.com/media/BEob5qwFkSJ7G/giphy.gif">
-                    </p>""")
+                    put_html(product_not_found_gif)
                     put_html(f'<h2 align="center">😢 Oh no, we couldn\'t find anything relevant to "{search}"...</h2>')
                     continue
 
