@@ -68,9 +68,9 @@ def index() -> None:
         💁‍♂️ Craft beers are usually brewed in smaller quantities by passionate brewers who care more about **quality** than quantity.
 
         # How to use?
-        🔎 Think of it as a search engine for craft beers in Singapore.
-        ✍️ Simply enter the craft beer brand, style, or name that you want in the search bar and hit "Submit".
-        🤑 Prices are ordered starting from the lowest to highest.
+        🔎 Think of it as a **search engine** for craft beers in Singapore.
+        ✍️ Simply enter the craft beer _brand_, _style_, or _name_ that you want in the search bar and hit "Submit".
+        🤑 Prices are ordered starting **from the lowest** to highest.
         """, lstrip=True)
 
     while True:
