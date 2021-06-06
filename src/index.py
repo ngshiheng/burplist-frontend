@@ -71,11 +71,20 @@ def index() -> None:
 
         # NOTE: Because the underlying SQL is using `to_tsquery`, we have to wrap our search text with single quotes
         with style(put_loading(color='primary'), 'width:20rem; height:20rem; display:block; margin-left:auto; margin-right:auto;'):
-            products = session.query(Product) \
-                .filter(or_(Product.brand.match(f"'{search}'"), Product.style.match(f"'{search}'"), Product.name.match(f"'{search}'")), and_(Product.updated_on >= datetime.utcnow() - timedelta(weeks=1)))  \
-                .order_by(Product.price_per_quantity.asc()) \
-                .all()
-            session.close()
+            try:
+                products = session.query(Product) \
+                    .filter(
+                        or_(
+                            Product.brand.match(f"'{search}'"),
+                            Product.style.match(f"'{search}'"),
+                            Product.name.match(f"'{search}'"),
+                        ),
+                        and_(Product.updated_on >= datetime.utcnow() - timedelta(weeks=1)))  \
+                    .order_by(Product.price_per_quantity) \
+                    .all()
+
+            finally:
+                session.close()
 
             with use_scope('result'):
                 if not products:
