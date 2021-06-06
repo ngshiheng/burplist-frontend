@@ -59,8 +59,8 @@ def index() -> None:
 
         put_markdown(r"""
         # What is this?
-        🇸🇬 A collection of craft beer prices in Singapore.
-        🖐 Prices of **all** beers in Singapore at your fingertips.
+        🇸🇬 A collection of **craft beer** prices in Singapore at your finger tips.
+        🔎 Think of it as a **search engine** for craft beers in Singapore.
 
         # What is craft beer?
         🤤 To simply put, craft beers are the more **delicious** alternative to your mainstream beers.
@@ -68,8 +68,7 @@ def index() -> None:
         💁‍♂️ Craft beers are usually brewed in smaller quantities by passionate brewers who care more about **quality** than quantity.
 
         # How to use?
-        🔎 Think of it as a **search engine** for craft beers in Singapore.
-        ✍️ Simply enter the craft beer _brand_, _style_, or _name_ that you want in the search bar and hit "Submit".
+        ✍️ Simply enter any beer _brand_, _style_, or _name_ that you want in the search bar and hit "Submit".
         🤑 Prices are ordered starting **from the lowest** to highest.
         """, lstrip=True)
 
