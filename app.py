@@ -31,7 +31,6 @@ def main():
         (r'/terms', webio_handler(terms)),
         (r'/privacy', webio_handler(privacy)),
         (r'/([^/]+)', FourOhFourHandler),
-
     ], **settings)
 
     app.listen(options.port)

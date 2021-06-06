@@ -1,5 +1,5 @@
-import datetime
 import os
+from datetime import datetime
 
 from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -44,7 +44,7 @@ class Price(Base):
     product = relationship('Product', backref='prices', cascade='delete')
 
     price = Column('price', Float)
-    updated_on = Column(DateTime, default=datetime.datetime.utcnow)
+    updated_on = Column(DateTime, default=datetime.utcnow)
 
     def __repr__(self) -> str:
         return f'Price(price={self.price}, product={self.product.name})'
@@ -55,17 +55,27 @@ class Product(Base):
     __table_args__ = (UniqueConstraint('quantity', 'url'),)
 
     id = Column(Integer, primary_key=True)
-    vendor = Column('vendor', String())
-    name = Column('name', String(), index=True)
-    quantity = Column('quantity', Integer())
-    url = Column('url', String())
-    created_on = Column(DateTime, default=datetime.datetime.utcnow)
+    platform = Column(String(), nullable=False)
+
+    name = Column(String(), index=True, nullable=False)
+    url = Column(String(), nullable=False)
+
+    brand = Column(String(), nullable=True, default=None)
+    style = Column(String(), nullable=True, default=None)
+    origin = Column(String(), nullable=True, default=None)
+
+    abv = Column(Float(), nullable=True, default=None)
+    volume = Column(Integer(), nullable=True, default=None)
+    quantity = Column(Integer(), nullable=False)
+
+    created_on = Column(DateTime, default=datetime.utcnow)
+    updated_on = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     last_price = column_property(
         select([Price.price]).
         where(Price.product_id == id).
         order_by(Price.id.desc()).
-        limit(1).
+        limit(1).  # NOTE: We have to always limit this as 1 to prevent `CardinalityViolation: more than one row returned by a subquery used as an expression`
         as_scalar()
     )
 
