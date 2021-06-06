@@ -2,6 +2,8 @@ favicon_url = "https://img.icons8.com/plasticine/100/000000/beer-glass.png"
 
 mail_to = 'hello@burplist.me'
 
+google_adsense = """$('head').append('<script data-ad-client="ca-pub-8667164348741019" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>')"""
+
 header = f"""
 $('#favicon32,#favicon16').remove();
 $('head').append('<link rel="icon" type="image/x-icon" href="{favicon_url}">')

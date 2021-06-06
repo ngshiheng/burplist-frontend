@@ -10,7 +10,7 @@ from pywebio.session import run_js, set_env
 from sqlalchemy import and_, or_
 from sqlalchemy.orm import sessionmaker
 
-from src.utils.constants import footer, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
+from src.utils.constants import footer, google_adsense, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
 from src.utils.models import Product, db_connect
 from src.utils.validators import validate_search_length
 
@@ -41,6 +41,7 @@ def index() -> None:
 
     # JavaScript stuffs
     run_js(header)
+    run_js(google_adsense)
     run_js(footer)
 
     # Page heading
