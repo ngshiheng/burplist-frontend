@@ -13,6 +13,7 @@ $('footer').html('📬 <a href="mailto:{mail_to}">Contact Us</a> | 📃 <a href=
 
 landing_page_heading = r"""
 <h1 align="center"><strong>Burplist</strong></h1>
+<h3 align="center">🔍 A search engine for craft beers 🍻</h1>
 """
 
 
@@ -34,7 +35,7 @@ landing_page_gif = r"""
 </style>
 
 <p align="center">
-    <img class="img" width="50%" height="50%" src="https://media.giphy.com/media/l3c5RJr6yRKyyIw00/giphy.gif">
+    <img class="img" width="50%" height="50%" src="https://media.giphy.com/media/DGWAx8d3IkICs/giphy.gif">
 </p>
 """
 
