@@ -13,11 +13,11 @@ $('footer').html('📬 <a href="mailto:{mail_to}">Contact Us</a> | 📃 <a href=
 
 landing_page_heading = r"""
 <h1 align="center"><strong>Burplist</strong></h1>
-<h3 align="center">🔍 A search engine for craft beers 🍻</h1>
 """
 
 
 landing_page_gif = r"""
+<h3 align="center">🔍 A search engine for craft beers 🍻</h1>
 <style>
 .img {
     width: auto;
