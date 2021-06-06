@@ -7,6 +7,7 @@ from pywebio.session import run_js, set_env
 from sqlalchemy import and_, or_
 from sqlalchemy.orm import sessionmaker
 
+from src.utils.constants import icon_url, mail_to
 from src.utils.models import Product, db_connect
 from src.utils.validators import validate_search_length
 
@@ -14,12 +15,22 @@ engine = db_connect()
 session = sessionmaker(bind=engine)()
 
 
-@seo('Burplist', 'Beer prices at your fingertips')
+@seo('Burplist', 'Craft beer prices at your fingertips')
 def index() -> None:
     set_env(auto_scroll_bottom=False)
-    run_js("""
-    $('footer').html('📬 <a href="mailto:jerry@burplist.me">Contact Us</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
+
+    # Update favicon
+    run_js(f"""
+    $('#favicon32,#favicon16').remove();
+    $('head').append('<link rel="icon" type="image/x-icon" href="{icon_url}">')
     """)
+
+    # Update footer
+    run_js(f"""
+    $('footer').html('📬 <a href="mailto:{mail_to}">Contact Us</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
+    """)
+
+    # Page title
     put_html(r"""
     <h1 align="center"><strong>Burplist</strong></h1>
     """)
@@ -55,6 +66,11 @@ def index() -> None:
         🤤 To simply put, craft beers are the more **delicious** alternative to your mainstream beers.
         🍻 In terms of styles, flavours and aroma, craft beers are usually more **diverse** in these aspects.
         💁‍♂️ Craft beers are usually brewed in smaller quantities by passionate brewers who care more about **quality** than quantity.
+
+        # How to use?
+        🔎 Think of it as a search engine for craft beers in Singapore.
+        ✍️ Simply enter the craft beer brand, style, or name that you want in the search bar and hit "Submit".
+        🤑 Prices are ordered starting from the lowest to highest.
         """, lstrip=True)
 
     while True:
@@ -117,7 +133,7 @@ def index() -> None:
                 put_table(
                     tdata=[
                         [
-                            put_html(f'<a href="{product.url}" target="_blank">{product.name}</a>'),
+                            put_html(f'<a href="{product.url}" target="_blank">🍺 {product.name}</a>'),
                             product.style if product.style else '😬',
                             f'{product.last_price:.2f}',
                             product.quantity,

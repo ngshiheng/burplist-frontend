@@ -2,12 +2,20 @@ from pywebio.output import put_markdown
 from pywebio.platform import seo
 from pywebio.session import run_js
 
+from src.utils.constants import icon_url, mail_to
+
 
 @seo('Burplist', 'Beer prices at your fingertips')
 def terms() -> None:
-    run_js("""
-    $('footer').html('📬 <a href="mailto:jerry@burplist.me">Contact Us</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
-    $("link[rel*='icon']").attr("href", "https://img.icons8.com/plasticine/100/000000/beer-glass.png");
+    # Update favicon
+    run_js(f"""
+    $('#favicon32,#favicon16').remove();
+    $('head').append('<link rel="icon" type="image/x-icon" href="{icon_url}">')
+    """)
+
+    # Update footer
+    run_js(f"""
+    $('footer').html('📬 <a href="mailto:{mail_to}">Contact Us</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
     """)
 
     put_markdown(r"""
@@ -32,7 +40,7 @@ def terms() -> None:
 
     Burplist may make changes to the Terms from time to time. You may reject the changes by not using this Service. You understand and agree that if You use the Service after the date on which the Terms have changed, Burplist will treat Your use as acceptance of the updated Terms.
 
-    If you have any question about the Terms, please contact us at jerry@burplist.me.
+    If you have any question about the Terms, please contact us at hello@burplist.me.
 
     ### Use of the Service
 
