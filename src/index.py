@@ -1,8 +1,9 @@
 import logging
+import os
 from datetime import datetime, timedelta
-from functools import lru_cache
 from typing import List
 
+from cachetools import TTLCache, cached
 from pywebio.input import TEXT, input
 from pywebio.output import clear, put_html, put_loading, put_markdown, put_table, put_text, style, use_scope
 from pywebio.platform import seo
@@ -10,18 +11,20 @@ from pywebio.session import run_js, set_env
 from sqlalchemy import and_, or_
 from sqlalchemy.orm import sessionmaker
 
-from src.utils.constants import amplitude_tracking, footer, google_adsense, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
+from src.utils.constants import CACHE_MAXSIZE, CACHE_TTL, amplitude_tracking, footer, google_adsense, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
 from src.utils.models import Product, db_connect
 from src.utils.validators import validate_search_length
 
 logger = logging.getLogger(__name__)
 
+
 engine = db_connect()
 session = sessionmaker(bind=engine)()
 
 
-@lru_cache()
+@cached(cache=TTLCache(maxsize=128, ttl=CACHE_TTL))
 def get_product_based_on_query(search: str) -> List[Product]:
+    logger.info(f'Searching database with user query: "{search}".')
     return session.query(Product) \
         .filter(
         or_(
@@ -50,7 +53,6 @@ def index() -> None:
     with use_scope('introduction'):
         put_html(landing_page_gif)
         put_markdown(landing_page_description, lstrip=True)
-        run_js("amplitude.getInstance().logEvent('Burplist says hi! 😬');")
 
     while True:
         search = input(
@@ -63,13 +65,13 @@ def index() -> None:
         )
         clear('result')
         clear('introduction')
+        run_js(f"amplitude.getInstance().logEvent('A user just searched for keyword: \"{search}\"');")
 
         # NOTE: Because the underlying SQL is using `to_tsquery`, we have to wrap our search text with single quotes
         with style(put_loading(color='primary'), 'width:20rem; height:20rem; display:block; margin-left:auto; margin-right:auto;'):
             products = []
             try:
                 products = get_product_based_on_query(str(search))
-                logger.info(get_product_based_on_query.cache_info())
 
             except Exception as error:
                 logger.exception(error)

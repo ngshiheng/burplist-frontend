@@ -1,3 +1,9 @@
+import os
+
+CACHE_TTL = int(os.environ.get('CACHE_TTL', 86_400))  # 24 hours
+CACHE_MAXSIZE = int(os.environ.get('CACHE_MAXSIZE', 128))
+
+
 favicon_url = "https://img.icons8.com/plasticine/100/000000/beer-glass.png"
 
 mail_to = 'hello@burplist.me'

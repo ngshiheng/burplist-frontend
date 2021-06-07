@@ -7,6 +7,7 @@ name = "pypi"
 pywebio = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
+cachetools = "*"
 
 [dev-packages]
 autopep8 = "*"
