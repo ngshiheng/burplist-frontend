@@ -43,7 +43,7 @@ landing_page_gif = r"""
 
 landing_page_description = r"""
 # What is this?
-🇸🇬 A collection of **craft beer** prices in Singapore at your finger tips.
+🇸🇬 A collection of **craft beer** prices in Singapore at your fingertips.
 🔎 Think of it as a **search engine** for craft beers in Singapore.
 
 # What is craft beer?
