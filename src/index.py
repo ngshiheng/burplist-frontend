@@ -10,7 +10,7 @@ from pywebio.session import run_js, set_env
 from sqlalchemy import and_, or_
 from sqlalchemy.orm import sessionmaker
 
-from src.utils.constants import amplitude_tracking, footer, google_adsense, gumroad_embedded_link, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
+from src.utils.constants import amplitude_tracking, footer, google_adsense, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
 from src.utils.models import Product, db_connect
 from src.utils.validators import validate_search_length
 
@@ -51,7 +51,6 @@ def index() -> None:
         put_html(landing_page_gif)
         put_markdown(landing_page_description, lstrip=True)
         run_js("amplitude.getInstance().logEvent('Burplist says hi! 😬');")
-        put_html(gumroad_embedded_link)
 
     while True:
         search = input(
