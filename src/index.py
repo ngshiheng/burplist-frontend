@@ -10,7 +10,7 @@ from pywebio.session import run_js, set_env
 from sqlalchemy import and_, or_
 from sqlalchemy.orm import sessionmaker
 
-from src.utils.constants import footer, google_adsense, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
+from src.utils.constants import amplitude_tracking, footer, google_adsense, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
 from src.utils.models import Product, db_connect
 from src.utils.validators import validate_search_length
 
@@ -40,6 +40,7 @@ def index() -> None:
     set_env(auto_scroll_bottom=False)
 
     # JavaScript stuffs
+    run_js(amplitude_tracking)
     run_js(header)
     run_js(google_adsense)
     run_js(footer)
@@ -49,6 +50,7 @@ def index() -> None:
     with use_scope('introduction'):
         put_html(landing_page_gif)
         put_markdown(landing_page_description, lstrip=True)
+        run_js("amplitude.getInstance().logEvent('EVENT_NAME_HERE');")
 
     while True:
         search = input(
