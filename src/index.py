@@ -1,5 +1,4 @@
 import logging
-import os
 from datetime import datetime, timedelta
 from typing import List
 
@@ -22,7 +21,7 @@ engine = db_connect()
 session = sessionmaker(bind=engine)()
 
 
-@cached(cache=TTLCache(maxsize=128, ttl=CACHE_TTL))
+@cached(cache=TTLCache(maxsize=CACHE_MAXSIZE, ttl=CACHE_TTL))
 def get_product_based_on_query(search: str) -> List[Product]:
     logger.info(f'Searching database with user query: "{search}".')
     return session.query(Product) \
