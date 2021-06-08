@@ -16,7 +16,7 @@ $('head').append('<link rel="icon" type="image/x-icon" href="{favicon_url}">')
 """
 
 footer = f"""
-$('footer').html('👇 <a href="https://gumroad.com/l/burplist/welcomeaboard10">Download CSV</a> | ✉️ <a href="mailto:{mail_to}">Contact</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
+$('footer').html('👉 <a href="https://gumroad.com/l/burplist/welcomeaboard10">Download CSV</a> | ✉️ <a href="mailto:{mail_to}">Contact</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
 """
 
 landing_page_heading = r"""
@@ -66,13 +66,9 @@ landing_page_description = r"""
 🥳 Short answer: Yes.
 🙌 Long answer: _Yessssssssssss_.
 
-## How can I donate to help Burplist?
-🙅‍♀️ We do not accept any forms of donations.
-👇 However, you can support us by buying this spreadsheet **[here](https://gumroad.com/l/burplist/welcomeaboard10)**.
-
-## What's inside this spreadsheet?
-🎁 Gain full access to **over 2,000** unique craft beers price and details for as low as **SGD$1 (limited time ⚡️)**.
-👉 Click **[here](https://gumroad.com/l/burplist/welcomeaboard10)** to pay and download.
+## Can I download the data in a spreadsheet?
+🎁 Yes. Gain full access to **over 2,000** unique craft beers price and details for as low as **SGD$1 (limited time ⚡️)**.
+👉 Click **[here](https://gumroad.com/l/burplist/welcomeaboard10)** to download.
 """
 
 
