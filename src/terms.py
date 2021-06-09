@@ -2,7 +2,7 @@ from pywebio.output import put_markdown
 from pywebio.platform import seo
 from pywebio.session import run_js
 
-from src.utils.constants import footer, header
+from src.utils.content import footer, header
 
 
 @seo('Burplist', 'Beer prices at your fingertips')

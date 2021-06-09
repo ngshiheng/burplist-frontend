@@ -10,7 +10,8 @@ from pywebio.session import run_js, set_env
 from sqlalchemy import and_, or_
 from sqlalchemy.orm import sessionmaker
 
-from src.utils.constants import CACHE_MAXSIZE, CACHE_TTL, amplitude_tracking, footer, google_adsense, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
+from src.utils.constants import CACHE_MAXSIZE, CACHE_TTL, LAST_N_DAY_DATA
+from src.utils.content import amplitude_tracking, footer, google_adsense, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
 from src.utils.models import Product, db_connect
 from src.utils.validators import validate_search_length
 
@@ -31,7 +32,7 @@ def get_product_based_on_query(search: str) -> List[Product]:
             Product.style.match(f"'{search}'"),
             Product.name.match(f"'{search}'"),
         ),
-        and_(Product.updated_on >= datetime.utcnow() - timedelta(weeks=1)))  \
+        and_(Product.updated_on >= datetime.utcnow() - timedelta(days=LAST_N_DAY_DATA)))  \
         .order_by(Product.price_per_quantity) \
         .limit(50) \
         .all()
