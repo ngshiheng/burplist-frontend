@@ -49,26 +49,31 @@ landing_page_gif = r"""
 
 landing_page_description = r"""
 # What is Burplist?
+
 🇸🇬 A collection of **craft beer** prices in Singapore at your fingertips.
 🔎 Think of it as a **search engine** for craft beers in Singapore.
 
 ## What is craft beer?
+
 🤤 To simply put, craft beers are the more **delicious** alternative to your mainstream beers.
 🍻 In terms of styles, flavours and aroma, craft beers are usually more **diverse** in these aspects.
-💁‍♂️ Craft beers are usually brewed in smaller quantities by passionate brewers who care more about **quality** than quantity.
+✨ Craft beers are usually brewed in smaller quantities by passionate brewers who care more about **quality** than quantity.
 
 ## How to use?
-✍️ Simply enter any beer _brand_, _style_, or _name_ that you want in the search bar and hit _"Submit"_.
+
+🛒 Shopping for beers? Simply enter any beer _brand_, _style_, or _name_ in the search bar and hit _"Submit"_.
 🤑 Prices are ordered starting **from the lowest** to highest.
 🔙 To return to this main page, simply hit _"Ctrl/Cmd + R"_ to refresh the page.
 
 ## Is this free?
+
 🥳 Short answer: Yes.
 🙌 Long answer: _Yessssssssssss_.
 
 ## Can I download the data in a spreadsheet?
-🎁 Yes. Gain full access to **over 2,000** unique craft beers price and details for as low as **SGD$1 (limited time ⚡️)**.
-👉 Click **[here](https://gumroad.com/l/burplist/welcomeaboard10)** to download.
+
+🎁 Yes. Gain full access to **over 2,000** unique craft beer prices and information for **SGD$1 (limited time ⚡️)**.
+👉 Click **[here](https://gumroad.com/l/burplist/welcomeaboard10)** to view and download.
 """
 
 
