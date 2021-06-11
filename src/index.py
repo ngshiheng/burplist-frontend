@@ -11,7 +11,7 @@ from sqlalchemy import and_, or_
 from sqlalchemy.orm import sessionmaker
 
 from src.utils.constants import CACHE_MAXSIZE, CACHE_TTL, LAST_N_DAY_DATA
-from src.utils.content import amplitude_tracking, footer, google_adsense, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
+from src.utils.content import amplitude_tracking, footer, google_adsense, google_analytics, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
 from src.utils.models import Product, db_connect
 from src.utils.validators import validate_search_length
 
@@ -43,9 +43,10 @@ def index() -> None:
     set_env(auto_scroll_bottom=False)
 
     # JavaScript stuffs
-    run_js(amplitude_tracking)
     run_js(header)
+    run_js(amplitude_tracking)
     run_js(google_adsense)
+    run_js(google_analytics)
     run_js(footer)
 
     # Page heading
@@ -83,6 +84,7 @@ def index() -> None:
                 if not products:
                     put_html(product_not_found_gif)
                     put_html(f'<h2 align="center">😢 Oh no, we couldn\'t find anything relevant to "{search}"...</h2>')
+                    put_html(f'<h6 align="center">Tip: While I am fast, I am not very good with spelling, can you try again with a different spelling? 😵‍💫</h6>')
                     continue
 
                 put_html(f"""
