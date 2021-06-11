@@ -2,7 +2,7 @@ import tornado.httpserver
 import tornado.ioloop
 import tornado.options
 import tornado.web
-from pywebio.platform.tornado_http import webio_handler
+from pywebio.platform.tornado import webio_handler
 from tornado.options import define, options
 
 from src.index import index

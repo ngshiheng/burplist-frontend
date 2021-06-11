@@ -84,7 +84,7 @@ def index() -> None:
                 if not products:
                     put_html(product_not_found_gif)
                     put_html(f'<h2 align="center">😢 Oh no, we couldn\'t find anything relevant to "{search}"...</h2>')
-                    put_html('<h6 align="center">Tip: While I am fast, I am not very good with spelling, can you try again with a different spelling? 😵‍💫</h6>')
+                    put_html('<h6 align="center">Tip: While I am fast, I am not very good with spelling. Can you try again with a different spelling? 😵‍💫</h6>')
                     continue
 
                 put_html(f"""
