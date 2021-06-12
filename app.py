@@ -10,6 +10,7 @@ from tornado.options import define, options
 
 from src.index import index
 from src.privacy import privacy
+from src.settings import ALLOWED_ORIGINS, RECONNECT_TIMEOUT, STATIC
 from src.terms import terms
 
 define('port', default=8080, help='Run on the given port', type=int)
@@ -28,11 +29,11 @@ def main():
         site_title='Burplist',
         debug=options.debug,
         static_path=os.path.join(os.path.dirname(__file__), 'static'),
-        static_url_prefix='/static/',
+        static_url_prefix=STATIC,
     )
 
     app = tornado.web.Application([
-        (r'/', ws_webio_handler(index)),
+        (r'/', ws_webio_handler(index, reconnect_timeout=RECONNECT_TIMEOUT, allowed_origins=ALLOWED_ORIGINS)),
         (r'/terms', http_webio_handler(terms)),
         (r'/privacy', http_webio_handler(privacy)),
         (r'/([^/]+)', FourOhFourHandler),
