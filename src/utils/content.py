@@ -1,12 +1,10 @@
-favicon_url = "https://img.icons8.com/plasticine/100/000000/beer-glass.png"
-
 mail_to = 'hello@burplist.me'
 
 google_adsense = """$('head').append('<script data-ad-client="ca-pub-8667164348741019" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>')"""
 
 header = f"""
 $('#favicon32,#favicon16').remove();
-$('head').append('<link rel="icon" type="image/x-icon" href="{favicon_url}">')
+$('head').append('<link rel="icon" type="image/x-icon" href="/static/favicon/burplist.png">')
 """
 
 footer = f"""
@@ -37,7 +35,7 @@ landing_page_gif = r"""
 </style>
 
 <p align="center">
-    <img class="img" width="50%" height="50%" src="https://media.giphy.com/media/DGWAx8d3IkICs/giphy.gif">
+    <img class="img" width="50%" height="50%" src="/static/gifs/home_page.gif">
 </p>
 """
 
@@ -88,7 +86,7 @@ product_not_found_gif = r"""
 }
 </style>
 <p align="center">
-    <img class="img" width="50%" height="50%" src="https://media.giphy.com/media/BEob5qwFkSJ7G/giphy.gif">
+    <img class="img" width="50%" height="50%" src="/static/gifs/no_results.gif">
 </p>
 """
 

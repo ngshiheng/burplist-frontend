@@ -1,3 +1,5 @@
+import os
+
 import tornado.httpserver
 import tornado.ioloop
 import tornado.options
@@ -24,6 +26,8 @@ def main():
     settings = dict(
         site_title='Burplist',
         debug=options.debug,
+        static_path=os.path.join(os.path.dirname(__file__), 'static'),
+        static_url_prefix='/static/',
     )
 
     app = tornado.web.Application([
