@@ -8,7 +8,7 @@ from pywebio.session import run_js, set_env
 from src.contents.index import download_description, footer, header, landing_page_description, landing_page_gif, landing_page_heading, no_results
 from src.contents.scripts import amplitude_tracking, google_adsense, google_analytics
 from src.settings import SEO_DESCRIPTION, SEO_TITLE
-from src.utils.search import get_product_based_on_query
+from src.utils.search import get_product_based_on_query, get_random_beer, get_random_beer_brand, get_random_beer_style
 from src.utils.validators import validate_search_length
 
 logger = logging.getLogger(__name__)
@@ -33,12 +33,18 @@ def index() -> None:
         put_markdown(download_description, lstrip=True)
 
     while True:
+        suggested_brand = get_random_beer_brand()
+        suggested_style = get_random_beer_style()
+        suggested_beer = get_random_beer()
+
+        help_text = f'Try: "{suggested_brand}", or "{suggested_style}", or "{suggested_beer}" ✌️'
+
         search = input(
             type=TEXT,
             required=True,
             label='🤩 Start looking here:',
             placeholder='Search for a beer brand, style, or name...',
-            help_text='Try: "Little Creatures", "IPA", or "Brewlander Love Wild IPA" ✌️',
+            help_text=help_text,
             validate=validate_search_length,
         )
         clear('result')

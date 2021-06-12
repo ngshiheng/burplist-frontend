@@ -1,4 +1,5 @@
 import logging
+import secrets
 from datetime import datetime, timedelta
 from typing import List
 
@@ -6,6 +7,7 @@ from cachetools import TTLCache, cached
 from sqlalchemy import and_, or_
 from sqlalchemy.orm import sessionmaker
 from src.settings import CACHE_MAXSIZE, CACHE_TTL, LAST_N_DAY_DATA
+from src.utils.constants import POPULAR_BEER_BRANDS, POPULAR_BEER_STYLES, POPULAR_BEERS
 from src.utils.models import Product, db_connect
 
 logger = logging.getLogger(__name__)
@@ -35,3 +37,15 @@ def get_product_based_on_query(search: str) -> List[Product]:
 
     finally:
         session.close()
+
+
+def get_random_beer_style() -> str:
+    return secrets.choice(POPULAR_BEER_STYLES)
+
+
+def get_random_beer_brand() -> str:
+    return secrets.choice(POPULAR_BEER_BRANDS)
+
+
+def get_random_beer() -> str:
+    return secrets.choice(POPULAR_BEERS)
