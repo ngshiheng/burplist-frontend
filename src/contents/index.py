@@ -1,4 +1,4 @@
-from src.settings import CONTACT_EMAIL
+from src.settings import CONTACT_EMAIL, GUMROAD_URL
 
 # This page contains all the html contents corresponding to `src/index.py`
 
@@ -66,11 +66,13 @@ landing_page_description = r"""
 
 🥳 Short answer: Yes.
 🙌 Long answer: _Yessssssssssss_.
+"""
 
+download_description = f"""
 ## Can I download the data in a spreadsheet?
 
-🎁 Yes. Gain full access to **over 2,000** unique craft beer prices and information for **SGD$1 (limited time ⚡️)**.
-👉 Click **[here](https://gumroad.com/l/burplist/welcomeaboard10)** to view and download.
+🎁 Yes. Gain full access to **over 2,000+** unique craft beer prices and information from **10+ different websites**.
+👉 Click **[here]({GUMROAD_URL})** to view and download.
 """
 
 
