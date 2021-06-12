@@ -9,7 +9,7 @@ from tornado.options import define, options
 
 from src.index import index
 from src.privacy import privacy
-from src.settings import ALLOWED_ORIGINS, RECONNECT_TIMEOUT, STATIC
+from src.settings import ALLOWED_ORIGINS, STATIC
 from src.terms import terms
 
 define('port', default=8080, help='Run on the given port', type=int)
