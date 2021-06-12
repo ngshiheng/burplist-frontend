@@ -1,44 +1,20 @@
 import logging
-from datetime import datetime, timedelta
-from typing import List
 
-from cachetools import TTLCache, cached
 from pywebio.input import TEXT, input
 from pywebio.output import clear, put_html, put_loading, put_markdown, put_table, put_text, style, use_scope
 from pywebio.platform import seo
 from pywebio.session import run_js, set_env
-from sqlalchemy import and_, or_
-from sqlalchemy.orm import sessionmaker
 
-from src.utils.constants import CACHE_MAXSIZE, CACHE_TTL, LAST_N_DAY_DATA
-from src.utils.content import amplitude_tracking, footer, google_adsense, google_analytics, header, landing_page_description, landing_page_gif, landing_page_heading, product_not_found_gif
-from src.utils.models import Product, db_connect
+from src.contents.index import footer, header, landing_page_description, landing_page_gif, landing_page_heading, no_results
+from src.contents.scripts import amplitude_tracking, google_adsense, google_analytics
+from src.settings import SEO_DESCRIPTION, SEO_TITLE
+from src.utils.search import get_product_based_on_query
 from src.utils.validators import validate_search_length
 
 logger = logging.getLogger(__name__)
 
 
-engine = db_connect()
-session = sessionmaker(bind=engine)()
-
-
-@cached(cache=TTLCache(maxsize=CACHE_MAXSIZE, ttl=CACHE_TTL))
-def get_product_based_on_query(search: str) -> List[Product]:
-    logger.info(f'Searching database with user query: "{search}".')
-    return session.query(Product) \
-        .filter(
-        or_(
-            Product.brand.match(f"'{search}'"),
-            Product.style.match(f"'{search}'"),
-            Product.name.match(f"'{search}'"),
-        ),
-        and_(Product.updated_on >= datetime.utcnow() - timedelta(days=LAST_N_DAY_DATA)))  \
-        .order_by(Product.price_per_quantity) \
-        .limit(50) \
-        .all()
-
-
-@seo('Burplist', 'Craft beer prices at your fingertips.')
+@seo(SEO_TITLE, SEO_DESCRIPTION)
 def index() -> None:
     set_env(auto_scroll_bottom=False)
 
@@ -70,21 +46,13 @@ def index() -> None:
 
         # NOTE: Because the underlying SQL is using `to_tsquery`, we have to wrap our search text with single quotes
         with style(put_loading(color='primary'), 'width:20rem; height:20rem; display:block; margin-left:auto; margin-right:auto;'):
-            products = []
-            try:
-                products = get_product_based_on_query(str(search))
-
-            except Exception as error:
-                logger.exception(error)
-
-            finally:
-                session.close()
+            products = get_product_based_on_query(str(search))
 
             with use_scope('result'):
                 if not products:
-                    put_html(product_not_found_gif)
+                    put_html(no_results)
                     put_html(f'<h2 align="center">😢 Oh no, we couldn\'t find anything relevant to "{search}"...</h2>')
-                    put_html('<h6 align="center">Tip: While I am fast, I am not very good with spelling. Can you try again with a different spelling? 😵‍💫</h6>')
+                    put_html('<h6 align="center">Tip: I am not very good with spelling. Can you try again with a different spelling? 😵‍💫</h6>')
                     continue
 
                 put_html(f"""

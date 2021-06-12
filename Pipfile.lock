@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "de8a40caa3cb556e1ccdc85f165abd593079dd9f279faacdcbfedd498c66e5cb"
+            "sha256": "ac27c0727710639c1228bb5bad1ef4db758d4d008163300f375c410ecaf6f92d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -23,6 +23,14 @@
             ],
             "index": "pypi",
             "version": "==4.2.2"
+        },
+        "environs": {
+            "hashes": [
+                "sha256:2eb671afd37e6e9820131b918bbbcaa6658d0fb420ebf35bdfb750ae39c51a66",
+                "sha256:6bef733b88cc901e787cf24fb2eaa72621b0656226ea4e332ab24ed0cba36fcf"
+            ],
+            "index": "pypi",
+            "version": "==9.3.2"
         },
         "greenlet": {
             "hashes": [
@@ -79,6 +87,14 @@
             "markers": "python_version >= '3'",
             "version": "==1.1.0"
         },
+        "marshmallow": {
+            "hashes": [
+                "sha256:8050475b70470cc58f4441ee92375db611792ba39ca1ad41d39cad193ea9e040",
+                "sha256:b45cde981d1835145257b4a3c5cb7b80786dcf5f50dd2990749a50c16cb48e01"
+            ],
+            "markers": "python_version >= '3.5'",
+            "version": "==3.12.1"
+        },
         "psycopg2-binary": {
             "hashes": [
                 "sha256:0deac2af1a587ae12836aa07970f5cb91964f05a7c6cdb69d8425ff4c15d4e2c",
@@ -119,6 +135,13 @@
             ],
             "index": "pypi",
             "version": "==2.8.6"
+        },
+        "python-dotenv": {
+            "hashes": [
+                "sha256:00aa34e92d992e9f8383730816359647f358f4a3be1ba45e5a5cefd27ee91544",
+                "sha256:b1ae5e9643d5ed987fc57cc2583021e38db531946518130777734f9589b3141f"
+            ],
+            "version": "==0.17.1"
         },
         "pywebio": {
             "hashes": [

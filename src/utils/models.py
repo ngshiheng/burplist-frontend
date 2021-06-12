@@ -1,4 +1,3 @@
-import os
 from datetime import datetime
 
 from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, create_engine
@@ -7,18 +6,9 @@ from sqlalchemy.orm import column_property, relationship
 from sqlalchemy.sql.expression import select
 from sqlalchemy.sql.schema import UniqueConstraint
 from sqlalchemy.util.langhelpers import hybridproperty
+from src.settings import DATABASE_CONNECTION_STRING
 
 Base = declarative_base()
-
-
-DATABASE_CONNECTION_STRING = '{drivername}://{user}:{password}@{host}:{port}/{db_name}'.format(
-    drivername='postgresql',
-    user=os.environ.get('PG_USERNAME', 'postgres'),
-    password=os.environ.get('PG_PASSWORD'),
-    host=os.environ.get('PG_HOST', 'localhost'),
-    port=os.environ.get('PG_PORT', '5432'),
-    db_name=os.environ.get('PG_DATABASE', 'burplist'),
-)
 
 
 def db_connect():

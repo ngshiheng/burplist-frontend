@@ -2,10 +2,11 @@ from pywebio.output import put_markdown
 from pywebio.platform import seo
 from pywebio.session import run_js
 
-from src.utils.content import footer, header
+from src.contents.index import footer, header
+from src.settings import SEO_DESCRIPTION, SEO_TITLE
 
 
-@seo('Burplist', 'Beer prices at your fingertips')
+@seo(SEO_TITLE, SEO_DESCRIPTION)
 def privacy() -> None:
     run_js(header)
     run_js(footer)

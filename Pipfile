@@ -8,6 +8,7 @@ pywebio = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
 cachetools = "*"
+environs = "*"
 
 [dev-packages]
 autopep8 = "*"
