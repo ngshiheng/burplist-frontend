@@ -251,3 +251,13 @@ POPULAR_BEERS = [
     'Wychwood Hobgoblin Gold English Golden Ale',
     'Wychwood Hobgoblin Ruby English Amber Ale',
 ]
+
+
+RESULTS_NOT_FOUND_GIFS = [
+    'https://media.giphy.com/media/VHrSW9jIYrlat3PwIB/giphy.gif',  # Morty
+    'https://media.giphy.com/media/1USKMDPjuH4ovL7J5h/giphy.gif',  # Rick
+    'https://media.giphy.com/media/TGKwNUQ11E9LnACDLe/giphy.gif',  # Morty
+    'https://media.giphy.com/media/WTiHD79xbtd53CgHpB/giphy.gif',  # Mr. Meeseeks
+    'https://media.giphy.com/media/QvH2Em7M2kb04VEOG2/giphy.gif',  # Jerry
+    'https://media.giphy.com/media/M9gBSOsxQW3od0GwfW/giphy.gif',  # Summer
+]

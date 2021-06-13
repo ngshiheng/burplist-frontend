@@ -5,10 +5,10 @@ from pywebio.output import clear, put_html, put_loading, put_markdown, put_table
 from pywebio.platform import seo
 from pywebio.session import run_js, set_env
 
-from src.contents.index import download_description, footer, header, landing_page_description, landing_page_gif, landing_page_heading, no_results
+from src.contents.index import download_description, footer, header, landing_page_description, landing_page_heading, landing_page_subheading, load_css
 from src.contents.scripts import amplitude_tracking, google_adsense, google_analytics
 from src.settings import SEO_DESCRIPTION, SEO_TITLE
-from src.utils.search import get_product_based_on_query, get_random_beer, get_random_beer_brand, get_random_beer_style
+from src.utils.search import get_product_based_on_query, get_random_beer, get_random_beer_brand, get_random_beer_style, get_random_results_not_found_gif
 from src.utils.validators import validate_search_length
 
 logger = logging.getLogger(__name__)
@@ -24,11 +24,12 @@ def index() -> None:
     run_js(google_adsense)
     run_js(google_analytics)
     run_js(footer)
+    put_html(load_css)
 
     # Page heading
     put_html(landing_page_heading)
     with use_scope('introduction'):
-        put_html(landing_page_gif)
+        put_html(landing_page_subheading)
         put_markdown(landing_page_description, lstrip=True)
         put_markdown(download_description, lstrip=True)
 
@@ -57,7 +58,7 @@ def index() -> None:
 
             with use_scope('result'):
                 if not products:
-                    put_html(no_results)
+                    put_html(get_random_results_not_found_gif())
                     put_html(f'<h2 align="center">😢 Oh no, we couldn\'t find anything related to "{search}"...</h2>')
                     put_html('<h6 align="center">Tip: I am not very good with spelling. Can you try again with a different spelling? 😵‍💫</h6>')
                     continue

@@ -7,7 +7,7 @@ from cachetools import TTLCache, cached
 from sqlalchemy import and_, func, or_
 from sqlalchemy.orm import sessionmaker
 from src.settings import CACHE_MAXSIZE, CACHE_TTL, LAST_N_DAY_DATA
-from src.utils.constants import POPULAR_BEER_BRANDS, POPULAR_BEER_STYLES, POPULAR_BEERS
+from src.utils.constants import POPULAR_BEER_BRANDS, POPULAR_BEER_STYLES, POPULAR_BEERS, RESULTS_NOT_FOUND_GIFS
 from src.utils.models import Product, db_connect
 
 logger = logging.getLogger(__name__)
@@ -57,3 +57,12 @@ def get_random_beer_brand() -> str:
 
 def get_random_beer() -> str:
     return secrets.choice(POPULAR_BEERS)
+
+
+def get_random_results_not_found_gif() -> str:
+    gif = secrets.choice(RESULTS_NOT_FOUND_GIFS)
+    return f"""
+        <p align="center">
+            <img alt="No results found" class="img" width="50%" height="50%" src="{gif}">
+        </p>
+    """

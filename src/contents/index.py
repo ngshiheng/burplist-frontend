@@ -16,13 +16,7 @@ $('footer').html('👉 <a href="">Download CSV</a> | ✉️ <a href="mailto:{CON
 """
 
 
-landing_page_heading = r"""
-<h1 align="center"><strong>Burplist</strong></h1>
-"""
-
-
-landing_page_gif = r"""
-<h3 align="center">🔍 A search engine for craft beers 🍻</h1>
+load_css = r"""
 <style>
 .img {
     width: auto;
@@ -39,8 +33,31 @@ landing_page_gif = r"""
 }
 </style>
 
+<style>
+.img {
+    width: auto;
+    height: auto;
+    max-width: 250;
+    max-height: 280px;
+    border:2px solid #fff;
+    -moz-box-shadow: 10px 10px 5px #ccc;
+    -webkit-box-shadow: 10px 10px 5px #ccc;
+    box-shadow: 10px 10px 5px #ccc;
+    -moz-border-radius:25px;
+    -webkit-border-radius:25px;
+    border-radius:25px;
+}
+</style>
+"""
+
+landing_page_heading = r"""
+<h1 align="center"><strong>Burplist</strong></h1>
+"""
+
+landing_page_subheading = r"""
+<h3 align="center">🔍 A search engine for craft beers 🍻</h1>
 <p align="center">
-    <img alt="Cheers" class="img" width="50%" height="50%" src="/static/gifs/landing_page.gif">
+    <img alt="Cheers" class="img" width="50%" height="50%" src="https://media.giphy.com/media/DGWAx8d3IkICs/giphy.gif">
 </p>
 """
 
@@ -73,26 +90,4 @@ download_description = f"""
 
 🎁 Yes. Gain full access to **over 2,000+** unique craft beer prices and information from **10+ different websites**.
 👉 Click **[here]({GUMROAD_URL})** to view and download.
-"""
-
-
-no_results = r"""
-<style>
-.img {
-    width: auto;
-    height: auto;
-    max-width: 250;
-    max-height: 280px;
-    border:2px solid #fff;
-    -moz-box-shadow: 10px 10px 5px #ccc;
-    -webkit-box-shadow: 10px 10px 5px #ccc;
-    box-shadow: 10px 10px 5px #ccc;
-    -moz-border-radius:25px;
-    -webkit-border-radius:25px;
-    border-radius:25px;
-}
-</style>
-<p align="center">
-    <img alt="No results found" class="img" width="50%" height="50%" src="/static/gifs/no_results.gif">
-</p>
 """

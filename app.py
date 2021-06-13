@@ -4,12 +4,13 @@ import tornado.httpserver
 import tornado.ioloop
 import tornado.options
 import tornado.web
+from pywebio.platform.tornado import webio_handler as ws_webio_handler
 from pywebio.platform.tornado_http import webio_handler as http_webio_handler
 from tornado.options import define, options
 
 from src.index import index
 from src.privacy import privacy
-from src.settings import ALLOWED_ORIGINS, STATIC
+from src.settings import ALLOWED_ORIGINS, RECONNECT_TIMEOUT, STATIC
 from src.terms import terms
 
 define('port', default=8080, help='Run on the given port', type=int)
@@ -32,7 +33,7 @@ def main():
     )
 
     app = tornado.web.Application([
-        (r'/', http_webio_handler(index, allowed_origins=ALLOWED_ORIGINS)),
+        (r'/', ws_webio_handler(index, reconnect_timeout=RECONNECT_TIMEOUT, allowed_origins=ALLOWED_ORIGINS)),
         (r'/terms', http_webio_handler(terms)),
         (r'/privacy', http_webio_handler(privacy)),
         (r'/([^/]+)', FourOhFourHandler),
