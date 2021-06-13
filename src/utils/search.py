@@ -63,6 +63,6 @@ def get_random_results_not_found_gif() -> str:
     gif = secrets.choice(RESULTS_NOT_FOUND_GIFS)
     return f"""
         <p align="center">
-            <img alt="No results found" class="img" width="50%" height="50%" src="{gif}">
+            <img alt="No Results Found GIF" class="img" width="50%" height="50%" src="{gif}">
         </p>
     """

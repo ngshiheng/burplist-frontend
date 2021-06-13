@@ -21,24 +21,8 @@ load_css = r"""
 .img {
     width: auto;
     height: auto;
-    max-width: 250;
-    max-height: 280px;
-    border:2px solid #fff;
-    -moz-box-shadow: 10px 10px 5px #ccc;
-    -webkit-box-shadow: 10px 10px 5px #ccc;
-    box-shadow: 10px 10px 5px #ccc;
-    -moz-border-radius:25px;
-    -webkit-border-radius:25px;
-    border-radius:25px;
-}
-</style>
-
-<style>
-.img {
-    width: auto;
-    height: auto;
-    max-width: 250;
-    max-height: 280px;
+    max-width: 400;
+    max-height: 300px;
     border:2px solid #fff;
     -moz-box-shadow: 10px 10px 5px #ccc;
     -webkit-box-shadow: 10px 10px 5px #ccc;
