@@ -1,7 +1,7 @@
 import logging
 import secrets
 from datetime import datetime, timedelta
-from typing import List
+from typing import Optional
 
 from cachetools import TTLCache, cached
 from sqlalchemy import and_, func, or_
@@ -17,7 +17,7 @@ session = sessionmaker(bind=engine)()
 
 
 @cached(cache=TTLCache(maxsize=CACHE_MAXSIZE, ttl=CACHE_TTL))
-def get_product_based_on_query(search_string: str) -> List[Product]:
+def get_product_based_on_query(search_string: str) -> Optional[list[Product]]:
     """
     Reference: https://github.com/sqlalchemy/sqlalchemy/issues/3160#issuecomment-441925498
 
