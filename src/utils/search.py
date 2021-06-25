@@ -6,9 +6,9 @@ from typing import List
 from cachetools import TTLCache, cached
 from sqlalchemy import and_, func, or_
 from sqlalchemy.orm import sessionmaker
+from src.database.models import Product, db_connect
 from src.settings import CACHE_MAXSIZE, CACHE_TTL, LAST_N_DAY_DATA
 from src.utils.constants import POPULAR_BEER_BRANDS, POPULAR_BEER_STYLES, POPULAR_BEERS, RESULTS_NOT_FOUND_GIFS
-from src.utils.models import Product, db_connect
 
 logger = logging.getLogger(__name__)
 
