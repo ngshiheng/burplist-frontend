@@ -7,33 +7,42 @@
 
 # What is this?
 
-🇸🇬 A collection of craft beer prices in Singapore.
+A frontend repository for https://burplist.me built using PyWebIO.
 
-🖐 Prices of **all** beers in Singapore at your fingertips.
+We collect online craft beer prices in Singapore and share it with the craft beer lovers here in Singapore.
 
-# What is craft beer?
+The site acts as a search engine for craft beers in Singapore, providing craft beer lovers pricing information for their favorite beer.
 
-🤤 To simply put, craft beers are the more **delicious** alternative to your mainstream beers.
-
-🍻 In terms of styles, flavours and aroma, craft beers are usually more **diverse** in these aspects.
-
-💁‍♂️ Craft beers are usually brewed in smaller quantities by passionate brewers who care more about **quality** than quantity.
+Say goodbye to browsing 10+ different sites at once to shop for your favorite craft beers.
 
 # Development
 
-How to run locally
+## How to install
 
+```sh
+pipenv sync
 ```
+
+## Optional: Environment variables
+
+Check out `/src/settings.py` and configure them accordingly.
+
+## How to run locally
+
+```sh
 pipenv run python3 app.py --debug=True --port=8080
+# At `http://localhost:8080/`
 ```
 
 # Deployment
 
-This project is currently hosted on Heroku, proxied by Cloudflare [here](burplist.me)
+This project is currently hosted on [Heroku](https://www.heroku.com/).
 
-[Heroku dashboard Link](https://dashboard.heroku.com/apps/burplist-frontend)
+## Useful Heroku commands
 
 ```sh
+heroku git:remote -a burplist-frontend-staging --staging
+
 # Print logs for staging
 heroku logs --tail --remote staging
 
