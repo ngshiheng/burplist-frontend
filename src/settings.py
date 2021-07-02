@@ -28,7 +28,9 @@ SEO_DESCRIPTION = 'Compare online craft beer prices in Singapore.'
 # Misc
 CONTACT_EMAIL = env.str('CONTACT_EMAIL', default='hello@burplist.me')
 
-GUMROAD_URL = env.str('GUMROAD_URL', default='https://gumroad.com/l/burplist')
+GUMROAD_DISCOUNT_CODE = env.str('GUMROAD_DISCOUNT_CODE', default='')
+GUMROAD_URL = f'https://gumroad.com/l/burplist/{GUMROAD_DISCOUNT_CODE}'
+
 
 RECONNECT_TIMEOUT = env.int('RECONNECT_TIMEOUT', default=60)
 

@@ -12,7 +12,7 @@ $('head').append('<link rel="icon" type="image/x-icon" href="/static/favicon/bur
 # Footer
 # ^^^^^^
 footer = f"""
-$('footer').html('👉 <a href="">Download CSV</a> | ✉️ <a href="mailto:{CONTACT_EMAIL}">Contact</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
+$('footer').html('👉 <a href="{GUMROAD_URL}">Download CSV</a> | ✉️ <a href="mailto:{CONTACT_EMAIL}">Contact</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
 """
 
 
