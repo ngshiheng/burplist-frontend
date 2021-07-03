@@ -1,12 +1,12 @@
 import logging
 
 from pywebio.input import TEXT, input
-from pywebio.output import clear, put_html, put_loading, put_markdown, put_table, put_text, style, use_scope
+from pywebio.output import clear, put_collapse, put_html, put_link, put_loading, put_markdown, put_table, put_text, scroll_to, style, use_scope
 from pywebio.platform import seo
 from pywebio.session import run_js, set_env
 
 from src.contents.index import download_description, footer, header, landing_page_description, landing_page_heading, landing_page_subheading, load_css
-from src.contents.scripts import amplitude_tracking, google_adsense, google_analytics
+from src.contents.scripts import amplitude_tracking, google_analytics
 from src.settings import SEO_DESCRIPTION, SEO_TITLE
 from src.utils.search import get_product_based_on_query, get_random_beer, get_random_beer_brand, get_random_beer_style, get_random_results_not_found_gif
 from src.utils.validators import validate_search_length
@@ -21,7 +21,6 @@ def index() -> None:
     # JavaScript stuffs
     run_js(header)
     run_js(amplitude_tracking)
-    run_js(google_adsense)
     run_js(google_analytics)
     run_js(footer)
     put_html(load_css)
@@ -50,6 +49,7 @@ def index() -> None:
         )
         clear('result')
         clear('introduction')
+        scroll_to(position='top')
         run_js(f"amplitude.getInstance().logEvent('Keyword searched: \"{search}\"');")
 
         # NOTE: Because the underlying SQL is using `to_tsquery`, we have to wrap our search text with single quotes
@@ -60,28 +60,36 @@ def index() -> None:
                 if not products:
                     put_html(get_random_results_not_found_gif())
                     put_html(f'<h2 align="center">😢 Oh no, we couldn\'t find anything related to "{search}"...</h2>')
-                    put_html('<h6 align="center">Tip: I am not very good with spelling. Can you try again with a different spelling? 😵‍💫</h6>')
+                    put_html('<h6 align="center">💡 I am not very good with spelling. Can you try again with a different spelling?</h6>')
                     continue
 
                 put_html(f"""
                 <h2 align="center">🔍 Found {len(products)} results for "{search}"...</h2>
                 """)
+
                 # Display the final result in a table
                 put_table(
                     tdata=[
                         [
-                            put_html(f'🍺 <a href="{product.url}" target="_blank">{product.name}</a>'),
-                            product.style if product.style else '😬',
-                            f'{product.last_price:.2f}',
-                            product.quantity,
-                            style(put_text(f'{product.price_per_quantity:.2f}'), 'color:red'),
+                            style(put_link(name=product.platform, url=product.url, new_window=True), 'text-align:center'),
+                            put_collapse(product.name, style([
+                                put_table([
+                                    ['Volume', 'ABV', 'Country', 'URL'],
+                                    [f'{product.volume}ml' if product.volume else '🙉', f'{product.abv}%' if product.abv else '🙈', product.origin if product.origin else '🙊', put_link(name='Link', url=product.url, new_window=True)],
+                                ]),
+                            ], 'text-align:center;'), open=False),
+                            style(put_text(product.style if product.style else '😬'), 'text-align:center'),
+                            f'${product.last_price:.2f}',
+                            style(put_text(product.quantity), 'text-align:center'),
+                            style(put_link(name=f'${product.price_per_quantity:.2f}', url=product.url, new_window=True), 'color:red; font-weight:bold; text-align:center;'),
                         ] for product in products
                     ],
                     header=[
-                        'Name',
-                        'Style',
-                        'Price\n($SGD)',
-                        'Qty.',
-                        'Price/Qty.\n($SGD)',
+                        style(put_text('🛍\nPlatform'), 'text-align:center;'),
+                        style(put_text('🍻\nName'), 'text-align:center;'),
+                        style(put_text('✨\nStyle'), 'text-align:center;'),
+                        style(put_text('💲\nPrice'), 'text-align:center;'),
+                        style(put_text('🛒\nQty.'), 'text-align:center;'),
+                        style(put_text('💸\nPrice/Qty.'), 'text-align:center;'),
                     ],
                 )
