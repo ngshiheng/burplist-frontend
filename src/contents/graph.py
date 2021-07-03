@@ -1,7 +1,7 @@
 from typing import Any
 
 from pyg2plot import Plot
-from pywebio.output import close_popup, popup, put_html
+from pywebio.output import PopupSize, close_popup, popup, put_html
 from src.utils.search import get_product_price_history
 
 
@@ -30,7 +30,7 @@ def show_price_history_graph(self, product: dict[str, Any]) -> None:
     """
     Shows a popup rendering a line graph of the beer's historical price
     """
-    @popup(product['name'])
+    @popup(title=product['name'], size=PopupSize.NORMAL)
     def show() -> None:
         product_prices = get_product_price_history(product['id'])
         if not product_prices:
@@ -40,7 +40,7 @@ def show_price_history_graph(self, product: dict[str, Any]) -> None:
         data = [
             {
                 'date': price.updated_on.strftime('%d %b %y'),
-                'price': price.price,
+                'price': float(f'{price.price: .2f}'),
             } for price in product_prices
         ]
         plot_line_graph(data)
