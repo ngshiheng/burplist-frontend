@@ -1,4 +1,4 @@
-from src.settings import CONTACT_EMAIL, GUMROAD_URL
+from src.settings import CONTACT_EMAIL, FEEDBACK_FORM_URL, GUMROAD_URL
 
 # This page contains all the html contents corresponding to `src/index.py`
 
@@ -12,7 +12,7 @@ $('head').append('<link rel="icon" type="image/x-icon" href="/static/favicon/bur
 # Footer
 # ^^^^^^
 footer = f"""
-$('footer').html('👉 <a href="{GUMROAD_URL}">Download CSV</a> | ✉️ <a href="mailto:{CONTACT_EMAIL}">Contact</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
+$('footer').html('👉 <a href="{GUMROAD_URL}" target="_blank">Download CSV</a> | ✉️ <a href="mailto:{CONTACT_EMAIL}" target="_blank">Contact</a> | 💡 <a href="{FEEDBACK_FORM_URL}" target="_blank">Feedback</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
 """
 
 
@@ -39,7 +39,7 @@ landing_page_heading = r"""
 """
 
 landing_page_subheading = r"""
-<h3 align="center">🔍 A search engine for craft beers 🍻</h1>
+<h3 align="center">A Search Engine for Craft Beers in Singapore 🍻</h1>
 <p align="center">
     <img alt="Cheers" class="img" width="50%" height="50%" src="https://media.giphy.com/media/DGWAx8d3IkICs/giphy.gif">
 </p>
@@ -50,6 +50,7 @@ landing_page_description = r"""
 
 🇸🇬 A collection of **craft beer** prices in Singapore at your fingertips.
 🔎 Think of it as a **search engine** for craft beers in Singapore.
+💯 Prices are updated **daily**.
 
 ## What is craft beer?
 
@@ -59,7 +60,7 @@ landing_page_description = r"""
 
 ## How to use?
 
-🛒 Shopping for beers? Simply enter any beer _brand_, _style_, or _name_ in the search bar and hit _"Submit"_.
+🛒 Shopping for beers? Simply enter any beer _brand_, _style_, or _name_ in the search bar and hit _"Enter"_.
 🤑 Prices are ordered starting **from the lowest** to highest.
 🔙 To return to this main page, simply hit _"Ctrl/Cmd + R"_ to refresh the page.
 
@@ -72,6 +73,6 @@ landing_page_description = r"""
 download_description = f"""
 ## Can I download the data in a spreadsheet?
 
-🎁 Yes. Gain full access to **over 2,000+** unique craft beer prices and information from **10+ different websites**.
+🎁 Yes. Gain full access to **over 2,500+** unique craft beer prices and information from **10+ different websites**.
 👉 Click **[here]({GUMROAD_URL})** to view and download.
 """
