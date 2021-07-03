@@ -40,7 +40,7 @@ def show_price_history_graph(self, product: dict[str, Any]) -> None:
         data = [
             {
                 'date': price.updated_on.strftime('%d %b %y'),
-                'price': float(f'{price.price: .2f}'),
+                'price': round(price.price, 2),
             } for price in product_prices
         ]
         plot_line_graph(data)
