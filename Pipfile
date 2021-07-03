@@ -9,6 +9,7 @@ sqlalchemy = "*"
 psycopg2-binary = "*"
 cachetools = "*"
 environs = "*"
+pyg2plot = "*"
 
 [dev-packages]
 autopep8 = "*"
