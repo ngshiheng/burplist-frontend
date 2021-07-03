@@ -71,11 +71,11 @@ def index() -> None:
                 put_table(
                     tdata=[
                         [
-                            style(put_link(name=product.platform, url=product.url, new_window=True), 'text-align:center'),
+                            style(put_link(name=product.platform.title(), url=product.url, new_window=True), 'text-align:center'),
                             put_collapse(product.name, style([
                                 put_table([
-                                    ['Volume', 'ABV', 'Country', 'URL'],
-                                    [f'{product.volume}ml' if product.volume else '🙉', f'{product.abv}%' if product.abv else '🙈', product.origin if product.origin else '🙊', put_link(name='Link', url=product.url, new_window=True)],
+                                    ['Volume', 'ABV', 'URL'],
+                                    [f'{product.volume}ml' if product.volume else '🙊', f'{product.abv}%' if product.abv else '🙈', put_link(name='View', url=product.url, new_window=True)],
                                 ]),
                             ], 'text-align:center;'), open=False),
                             style(put_text(product.style if product.style else '😬'), 'text-align:center'),
