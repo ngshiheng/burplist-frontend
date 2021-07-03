@@ -5,8 +5,8 @@ from typing import Optional
 
 from cachetools import TTLCache, cached
 from sqlalchemy import and_, func, or_
-from sqlalchemy.orm import sessionmaker
-from src.database.models import Product, db_connect
+from sqlalchemy.orm import query, sessionmaker
+from src.database.models import Price, Product, db_connect
 from src.settings import CACHE_MAXSIZE, CACHE_TTL, LAST_N_DAY_DATA
 from src.utils.constants import POPULAR_BEER_BRANDS, POPULAR_BEER_STYLES, POPULAR_BEERS, RESULTS_NOT_FOUND_GIFS
 
@@ -14,6 +14,25 @@ logger = logging.getLogger(__name__)
 
 engine = db_connect()
 session = sessionmaker(bind=engine)()
+
+ONE_YEAR_IN_DAYS = 365
+
+
+@cached(cache=TTLCache(maxsize=CACHE_MAXSIZE, ttl=CACHE_TTL))
+def get_product_price_history(product_id: int) -> Optional[query.Query]:
+    logger.info(f'Getting price history for product_id: "{product_id}".')
+
+    try:
+        return session.query(Price) \
+            .filter(Price.product_id == product_id) \
+            .order_by(Price.updated_on) \
+            .limit(ONE_YEAR_IN_DAYS)
+
+    except Exception as exception:
+        logger.exception(exception)
+
+    finally:
+        session.close()
 
 
 @cached(cache=TTLCache(maxsize=CACHE_MAXSIZE, ttl=CACHE_TTL))

@@ -1,10 +1,12 @@
 import logging
+from functools import partial
 
 from pywebio.input import TEXT, input
-from pywebio.output import clear, put_collapse, put_html, put_link, put_loading, put_markdown, put_table, put_text, scroll_to, style, use_scope
+from pywebio.output import clear, put_buttons, put_collapse, put_html, put_link, put_loading, put_markdown, put_table, put_text, scroll_to, style, use_scope
 from pywebio.platform import seo
 from pywebio.session import run_js, set_env
 
+from src.contents.graph import show_price_history_graph
 from src.contents.index import download_description, footer, header, landing_page_description, landing_page_heading, landing_page_subheading, load_css
 from src.contents.scripts import amplitude_tracking, google_analytics
 from src.settings import SEO_DESCRIPTION, SEO_TITLE
@@ -74,8 +76,13 @@ def index() -> None:
                             style(put_link(name=product.platform.title(), url=product.url, new_window=True), 'text-align:center'),
                             put_collapse(product.name, style([
                                 put_table([
-                                    ['Volume', 'ABV', 'URL'],
-                                    [f'{product.volume}ml' if product.volume else '🙊', f'{product.abv}%' if product.abv else '🙈', put_link(name='View', url=product.url, new_window=True)],
+                                    ['Volume', 'ABV', 'Link', 'Price Chart'],
+                                    [
+                                        f'{product.volume}ml' if product.volume else '🙊',
+                                        f'{product.abv}%' if product.abv else '🙈',
+                                        put_link(name='View', url=product.url, new_window=True),
+                                        put_buttons([dict(label='Show', value={'id': product.id, 'name': product.name}, color='primary')], onclick=partial(show_price_history_graph, {'id': product.id, 'name': product.name})),
+                                    ],
                                 ]),
                             ], 'text-align:center;'), open=False),
                             style(put_text(product.style if product.style else '😬'), 'text-align:center'),
