@@ -22,8 +22,8 @@ LAST_N_DAY_DATA = env.int('LAST_N_DAY_DATA', default=7)
 
 # SEO
 # ^^^
-SEO_TITLE = 'Burplist.me - Free Price Comparison Tool for Craft Beers'
-SEO_DESCRIPTION = 'Compare online craft beer prices in Singapore.'
+SEO_TITLE = 'Burplist.me - Free Price Comparison Tool for Craft Beers in Singapore'
+SEO_DESCRIPTION = 'Compare craft beer prices online in Singapore.'
 
 # Misc
 CONTACT_EMAIL = env.str('CONTACT_EMAIL', default='hello@burplist.me')

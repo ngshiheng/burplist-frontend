@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, create_engine
+from sqlalchemy.engine.base import Engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import column_property, relationship
 from sqlalchemy.sql.expression import select
@@ -11,7 +12,7 @@ from src.settings import DATABASE_CONNECTION_STRING
 Base = declarative_base()
 
 
-def db_connect():
+def db_connect() -> Engine:
     """
     Performs database connection using database settings from settings.py
     Returns sqlalchemy engine instance
@@ -19,7 +20,7 @@ def db_connect():
     return create_engine(DATABASE_CONNECTION_STRING)
 
 
-def create_table(engine):
+def create_table(engine: Engine) -> None:
     """
     Creates database table
     """

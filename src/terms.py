@@ -2,8 +2,8 @@ from pywebio.output import put_markdown
 from pywebio.platform import seo
 from pywebio.session import run_js
 
-from src.contents.index import footer, header
 from src.settings import SEO_DESCRIPTION, SEO_TITLE
+from src.utils.contents.index import footer, header
 
 
 @seo(SEO_TITLE, SEO_DESCRIPTION)
