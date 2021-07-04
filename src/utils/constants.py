@@ -1,3 +1,4 @@
+# TODO: Refactor this to get information from existing database
 POPULAR_BEER_STYLES = [
     # Sorted by COUNT DESC
     'IPA',
