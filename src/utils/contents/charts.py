@@ -33,6 +33,7 @@ def plot_price_history_line_graph(data: list[dict[str, Any]]) -> None:
         )
         .set_global_opts(
             title_opts=opts.TitleOpts(title='Price History', subtitle='$(SGD)'),
+            yaxis_opts=opts.AxisOpts(min_='dataMin'),
         )
     )
 
