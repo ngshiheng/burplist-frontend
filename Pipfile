@@ -10,6 +10,7 @@ psycopg2-binary = "*"
 cachetools = "*"
 environs = "*"
 pyecharts = "*"
+pytz = "*"
 
 [dev-packages]
 autopep8 = "*"

@@ -1,7 +1,10 @@
 from environs import Env
+from pytz import timezone
 
 env = Env()
 env.read_env()
+
+LOCAL_TIMEZONE = timezone('Asia/Singapore')
 
 # In-memory Caching
 # ^^^^^^^^^^^^^^^^^
