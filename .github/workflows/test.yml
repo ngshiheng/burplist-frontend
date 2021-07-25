@@ -25,4 +25,4 @@ jobs:
                   pipenv install --dev
             - name: Run checks
               run: |
-                  pipenv run flake8 --ignore E501 --statistics --show-source
+                  pipenv run flake8 --statistics --show-source

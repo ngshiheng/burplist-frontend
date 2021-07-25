@@ -32,12 +32,14 @@ def main():
         static_url_prefix=STATIC,
     )
 
-    app = tornado.web.Application([
-        (r'/', ws_webio_handler(index, reconnect_timeout=RECONNECT_TIMEOUT, allowed_origins=ALLOWED_ORIGINS)),
-        (r'/terms', http_webio_handler(terms)),
-        (r'/privacy', http_webio_handler(privacy)),
-        (r'/([^/]+)', FourOhFourHandler),
-    ], **settings)
+    app = tornado.web.Application(
+        [
+            (r'/', ws_webio_handler(index, reconnect_timeout=RECONNECT_TIMEOUT, allowed_origins=ALLOWED_ORIGINS)),
+            (r'/terms', http_webio_handler(terms)),
+            (r'/privacy', http_webio_handler(privacy)),
+            (r'/([^/]+)', FourOhFourHandler),
+        ], **settings
+    )
 
     app.listen(options.port)
     tornado.ioloop.IOLoop.current().start()
