@@ -38,6 +38,10 @@ landing_page_heading = r"""
 <h1 align="center"><strong>Burplist</strong></h1>
 """
 
+product_hunt_feature_banner = r"""
+<div align="center"><a href="https://www.producthunt.com/posts/burplist?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-burplist" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=304966&theme=light" alt="Burplist - Free price comparison tool for craft beers | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a></div>
+"""
+
 landing_page_subheading = r"""
 <h3 align="center">A Search Engine for Craft Beers in Singapore 🍻</h1>
 <p align="center">
