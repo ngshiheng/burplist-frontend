@@ -1,9 +1,10 @@
 from datetime import datetime
 
-from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, create_engine
+from sqlalchemy import Column, DateTime, Float, Integer, String, create_engine
 from sqlalchemy.engine.base import Engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import column_property, relationship
+from sqlalchemy.orm import column_property
+from sqlalchemy.schema import MetaData, Table
 from sqlalchemy.sql.expression import select
 from sqlalchemy.sql.schema import UniqueConstraint
 from sqlalchemy.util.langhelpers import hybridproperty
@@ -15,7 +16,6 @@ Base = declarative_base()
 def db_connect() -> Engine:
     """
     Performs database connection using database settings from settings.py
-    Returns sqlalchemy engine instance
     """
     return create_engine(DATABASE_CONNECTION_STRING)
 
@@ -27,18 +27,14 @@ def create_table(engine: Engine) -> None:
     Base.metadata.create_all(engine)
 
 
+metadata = MetaData(bind=db_connect())
+
+
 class Price(Base):
-    __tablename__ = 'price'
-
-    id = Column(Integer, primary_key=True)
-    product_id = Column(Integer, ForeignKey('product.id'), nullable=False, index=True)
-    product = relationship('Product', backref='prices', cascade='delete')
-
-    price = Column('price', Float)
-    updated_on = Column(DateTime, default=datetime.utcnow)
-
-    def __repr__(self) -> str:
-        return f'Price(price={self.price}, product={self.product.name})'
+    """
+    Reflect Price database table using metadata from database
+    """
+    __table__ = Table('price', metadata, autoload=True)
 
 
 class Product(Base):
@@ -67,7 +63,7 @@ class Product(Base):
         where(Price.product_id == id).
         order_by(Price.id.desc()).
         limit(1).  # NOTE: We have to always limit this as 1 to prevent `CardinalityViolation: more than one row returned by a subquery used as an expression`
-        as_scalar()
+        as_scalar(),
     )
 
     @hybridproperty
