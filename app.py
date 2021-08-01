@@ -8,6 +8,7 @@ from pywebio.platform.tornado import webio_handler as ws_webio_handler
 from pywebio.platform.tornado_http import webio_handler as http_webio_handler
 from tornado.options import define, options
 
+from src.feedback import feedback
 from src.index import index
 from src.privacy import privacy
 from src.settings import ALLOWED_ORIGINS, RECONNECT_TIMEOUT, STATIC
@@ -37,6 +38,7 @@ def main():
             (r'/', ws_webio_handler(index, reconnect_timeout=RECONNECT_TIMEOUT, allowed_origins=ALLOWED_ORIGINS)),
             (r'/terms', http_webio_handler(terms)),
             (r'/privacy', http_webio_handler(privacy)),
+            (r'/feedback', http_webio_handler(feedback)),
             (r'/([^/]+)', FourOhFourHandler),
         ], **settings
     )

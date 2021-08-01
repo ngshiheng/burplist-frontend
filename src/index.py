@@ -69,7 +69,7 @@ def generate_table_data(products: list[Product]) -> list[list[Union[Output, Outp
     ]
 
 
-@ seo(SEO_TITLE, SEO_DESCRIPTION)
+@seo(SEO_TITLE, SEO_DESCRIPTION)
 def index() -> None:
     """
     Renders the main page of Burplist
@@ -111,6 +111,7 @@ def index() -> None:
             help_text=help_text,
             validate=validate_search_length,
         )
+
         clear('result')
         clear('introduction')
         scroll_to(position='top')

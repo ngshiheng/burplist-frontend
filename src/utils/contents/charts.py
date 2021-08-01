@@ -25,7 +25,7 @@ def plot_price_history_line_graph(data: list[dict[str, Any]]) -> None:
                 data=[
                     opts.MarkPointItem(type_='min', name='Min'),
                     opts.MarkPointItem(type_='max', name='Max'),
-                ]
+                ],
             ) if more_than_one_data else None,
             # Mark Line
             markline_opts=opts.MarkLineOpts(
@@ -48,7 +48,7 @@ def show_price_history_graph_popup(self, product: dict[str, Any]) -> None:
     """
     Shows a popup rendering a line graph of the beer's historical price
     """
-    @ popup(title=product['name'], size=PopupSize.NORMAL)
+    @popup(title=product['name'], size=PopupSize.NORMAL)
     def show() -> None:
         product_prices = get_product_price_history(product['id'])
         if not product_prices:

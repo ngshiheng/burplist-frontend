@@ -1,4 +1,4 @@
-from src.settings import CONTACT_EMAIL, FEEDBACK_FORM_URL, GUMROAD_URL
+from src.settings import CONTACT_EMAIL, GUMROAD_URL
 
 # This page contains all the html contents corresponding to `src/index.py`
 
@@ -12,7 +12,7 @@ $('head').append('<link rel="icon" type="image/x-icon" href="/static/favicon/bur
 # Footer
 # ^^^^^^
 footer = f"""
-$('footer').html('👉 <a href="{GUMROAD_URL}" target="_blank">Download CSV</a> | ✉️ <a href="mailto:{CONTACT_EMAIL}" target="_blank">Contact</a> | 💡 <a href="{FEEDBACK_FORM_URL}" target="_blank">Feedback</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
+$('footer').html('👉 <a href="{GUMROAD_URL}" target="_blank">Download CSV</a> | ✉️ <a href="mailto:{CONTACT_EMAIL}" target="_blank">Contact</a> | 💡 <a href="/feedback">Feedback</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
 """
 
 
@@ -43,7 +43,7 @@ product_hunt_feature_banner = r"""
 """
 
 landing_page_subheading = r"""
-<h3 align="center">A Search Engine for Craft Beers in Singapore 🍻</h1>
+<h3 align="center">Free Price Comparison Tool for Craft Beers 🍻</h1>
 <p align="center">
     <img alt="Cheers" class="img" width="50%" height="50%" src="https://media.giphy.com/media/DGWAx8d3IkICs/giphy.gif">
 </p>
