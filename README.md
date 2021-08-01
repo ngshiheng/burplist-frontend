@@ -20,7 +20,7 @@ Say goodbye to browsing 10+ different sites at once to shop for your favorite cr
 ## How to install
 
 ```sh
-pipenv sync --dev
+poetry install
 ```
 
 ## Setup Pre-commit Hooks
@@ -39,7 +39,7 @@ Check out `/src/settings.py` and configure them accordingly.
 ## How to run locally
 
 ```sh
-pipenv run python3 app.py --debug=True --port=8080
+poetry run python3 app.py --debug=True --port=8080
 # At `http://localhost:8080/`
 ```
 
