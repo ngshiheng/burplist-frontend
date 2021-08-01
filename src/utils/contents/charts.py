@@ -1,3 +1,4 @@
+__all__ = ['show_price_history_graph_popup']
 from typing import Any
 
 from pyecharts import options as opts

@@ -1,7 +1,7 @@
+__all__ = ['privacy']
 from pywebio.output import put_markdown
 from pywebio.platform import seo
 from pywebio.session import run_js
-
 from src.settings import SEO_DESCRIPTION, SEO_TITLE
 from src.utils.contents.index import footer, header
 
@@ -11,7 +11,8 @@ def privacy() -> None:
     run_js(header)
     run_js(footer)
 
-    put_markdown(r"""
+    put_markdown(
+        r"""
     Privacy Policy
     ================
 
@@ -119,4 +120,5 @@ def privacy() -> None:
 
     Burplist
     [hello@burplist.me](mailto:hello@burplist.me)
-    """, lstrip=True)
+    """, lstrip=True,
+    )

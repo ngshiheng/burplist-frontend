@@ -1,3 +1,4 @@
+__all__ = ['index']
 import logging
 from functools import partial
 from typing import Union
@@ -7,7 +8,6 @@ from pywebio.io_ctrl import Output, OutputList
 from pywebio.output import clear, put_buttons, put_collapse, put_html, put_link, put_loading, put_markdown, put_table, put_text, scroll_to, style, use_scope
 from pywebio.platform import seo
 from pywebio.session import run_js, set_env
-
 from src.database.models import Product
 from src.database.utils import get_product_based_on_query, get_random_beer, get_random_beer_brand, get_random_beer_style, get_random_results_not_found_gif
 from src.settings import SEO_DESCRIPTION, SEO_TITLE

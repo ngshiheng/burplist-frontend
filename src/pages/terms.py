@@ -1,7 +1,7 @@
+__all__ = ['terms']
 from pywebio.output import put_markdown
 from pywebio.platform import seo
 from pywebio.session import run_js
-
 from src.settings import SEO_DESCRIPTION, SEO_TITLE
 from src.utils.contents.index import footer, header
 
@@ -11,7 +11,8 @@ def terms() -> None:
     run_js(header)
     run_js(footer)
 
-    put_markdown(r"""
+    put_markdown(
+        r"""
     Terms of Service
     ================
 
@@ -88,4 +89,5 @@ def terms() -> None:
     You agree that if Burplist does not exercise or enforce any legal right or remedy which is contained in the Terms (or which Burplist has the benefit of under any applicable law), this will not be taken to be a formal waiver of Burplist's rights and that those rights or remedies will still be available to Burplist.
 
     Burplist shall not be liable for failing or delaying performance of its obligations resulting from any condition beyond its reasonable control, including but not limited to, governmental action, acts of terrorism, earthquake, fire, flood or other acts of God, labor conditions, power failures, and Internet disturbances.
-    """, lstrip=True)
+    """, lstrip=True,
+    )
