@@ -127,7 +127,7 @@ def index() -> None:
                 if not products:
                     put_html(get_random_results_not_found_gif())
                     put_html(f'<h2 align="center">😢 Oh no, we couldn\'t find anything related to <i>"{search}"</i>...</h2>')
-                    put_html('<h6 align="center">💡 Can you try with a different keyword?</h6>')
+                    put_html('<h6 align="center">💡 Please try with a different keyword</h6>')
                     continue
 
                 put_html(f"""

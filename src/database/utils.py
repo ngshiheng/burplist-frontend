@@ -31,6 +31,7 @@ def get_product_price_history(product_id: int) -> Optional[query.Query]:
 
     except ProgrammingError as exception:
         logger.exception(exception)
+        raise
 
     finally:
         session.close()
@@ -56,6 +57,7 @@ def get_product_based_on_query(search_string: str) -> Optional[list[Product]]:
 
     except ProgrammingError as exception:
         logger.exception(exception)
+        raise
 
     finally:
         session.close()
