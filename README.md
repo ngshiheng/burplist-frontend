@@ -17,6 +17,14 @@ Say goodbye to browsing 10+ different sites at once to shop for your favorite cr
 
 # Development
 
+## `pg_trgm`
+
+Ensure that `pg_trgm` is installed as your PostgreSQL extension.
+
+```sql
+CREATE EXTENSION pg_trgm;
+```
+
 ## How to install
 
 ```sh
@@ -30,7 +38,7 @@ Before you begin your development work, make sure you have installed [pre-commit
 Some example useful invocations:
 
 -   `pre-commit install`: Default invocation. Installs the pre-commit script alongside any existing git hooks.
--   `pre-commit install --install-hooks --overwrite`: Idempotently replaces existing git hook scripts with pre-commit, and also installs hook environments
+-   `pre-commit install --install-hooks --overwrite`: Idempotently replaces existing git hook scripts with pre-commit, and also installs hook environments.
 
 ## Optional: Environment variables
 

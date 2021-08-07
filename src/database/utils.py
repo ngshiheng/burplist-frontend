@@ -5,6 +5,7 @@ from typing import Optional
 
 from cachetools import TTLCache, cached
 from sqlalchemy import and_, func, or_
+from sqlalchemy.exc import ProgrammingError
 from sqlalchemy.orm import query, sessionmaker
 from src.database.models import Price, Product, db_connect
 from src.settings import CACHE_MAXSIZE, CACHE_TTL, LAST_N_DAY_DATA
@@ -28,7 +29,7 @@ def get_product_price_history(product_id: int) -> Optional[query.Query]:
             .order_by(Price.updated_on) \
             .limit(ONE_YEAR_IN_DAYS)
 
-    except Exception as exception:
+    except ProgrammingError as exception:
         logger.exception(exception)
 
     finally:
@@ -38,28 +39,22 @@ def get_product_price_history(product_id: int) -> Optional[query.Query]:
 @cached(cache=TTLCache(maxsize=CACHE_MAXSIZE, ttl=CACHE_TTL))
 def get_product_based_on_query(search_string: str) -> Optional[list[Product]]:
     """
-    Reference: https://github.com/sqlalchemy/sqlalchemy/issues/3160#issuecomment-441925498
-
-    # TODO: Implement FTS: https://stackoverflow.com/questions/42388956/create-a-full-text-search-index-with-sqlalchemy-on-postgresql/53217555
+    Primary search API for Burplist
     """
     logger.info(f'Searching database with user query: "{search_string}".')
 
     try:
-        tq = func.plainto_tsquery('english', search_string)
-
-        return session.query(Product) \
-            .filter(
+        return session.query(Product).filter(
             or_(
-                Product.brand.op('@@')(tq),
-                Product.style.op('@@')(tq),
-                Product.name.op('@@')(tq),
+                func.similarity(Product.platform, search_string) > 0.6,
+                func.similarity(Product.style, search_string) > 0.5,
+                func.similarity(Product.brand, search_string) > 0.4,
+                func.similarity(Product.name, search_string) > 0.2,
             ),
-            and_(Product.updated_on >= datetime.utcnow() - timedelta(days=LAST_N_DAY_DATA)))  \
-            .order_by(Product.price_per_quantity) \
-            .limit(50) \
-            .all()
+            and_(Product.updated_on >= datetime.utcnow() - timedelta(days=LAST_N_DAY_DATA)),
+        ).order_by(Product.price_per_quantity).limit(50).all()
 
-    except Exception as exception:
+    except ProgrammingError as exception:
         logger.exception(exception)
 
     finally:

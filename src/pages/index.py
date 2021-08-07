@@ -107,7 +107,7 @@ def index() -> None:
             type=TEXT,
             required=True,
             label='🤩 Start looking here:',
-            placeholder='Search for a beer brand, style, or name...',
+            placeholder='Search for a platform, beer brand, style, or name...',
             help_text=help_text,
             validate=validate_search_length,
         )
@@ -126,8 +126,8 @@ def index() -> None:
             with use_scope('result'):
                 if not products:
                     put_html(get_random_results_not_found_gif())
-                    put_html(f'<h2 align="center">😢 Oh no, we couldn\'t find anything related to "{search}"...</h2>')
-                    put_html('<h6 align="center">💡 I am not very good with spelling. Can you try again with a different spelling?</h6>')
+                    put_html(f'<h2 align="center">😢 Oh no, we couldn\'t find anything related to <i>"{search}"</i>...</h2>')
+                    put_html('<h6 align="center">💡 Can you try with a different keyword?</h6>')
                     continue
 
                 put_html(f"""

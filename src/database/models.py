@@ -17,7 +17,7 @@ def db_connect() -> Engine:
     """
     Performs database connection using database settings from settings.py
     """
-    return create_engine(DATABASE_CONNECTION_STRING)
+    return create_engine(DATABASE_CONNECTION_STRING, echo=False)  # NOTE: Set `echo=True` to print SQL
 
 
 def create_table(engine: Engine) -> None:
