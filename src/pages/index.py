@@ -131,7 +131,7 @@ def index() -> None:
                     continue
 
                 put_html(f"""
-                <h2 align="center">🔍 Found {len(products)} results for "{search}"...</h2>
+                <h2 align="center">🔍 Found {len(products)} results for <i>"{search}"</i>...</h2>
                 """)
 
                 # Display the final result in a table
