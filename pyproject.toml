@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "burplist-frontend"
-version = "1.0.0"
+version = "0.0.0"
 description = "A frontend repository for the Burplist project."
 authors = ["Jerry Ng <ngshiheng@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "3.9.6"
+python = "^3.9"
 pywebio = "^1.3.3"
 SQLAlchemy = "^1.4.22"
 psycopg2-binary = "^2.9.1"
