@@ -43,7 +43,7 @@ product_hunt_feature_banner = r"""
 """
 
 landing_page_subheading = r"""
-<h3 align="center">Free Price Comparison Tool for Craft Beers 🍻</h1>
+<h3 align="center">Search Engine for Craft Beers 🍻 in Singapore</h1>
 <p align="center">
     <img alt="Cheers" class="img" width="50%" height="50%" src="https://media.giphy.com/media/DGWAx8d3IkICs/giphy.gif">
 </p>
@@ -52,8 +52,9 @@ landing_page_subheading = r"""
 landing_page_description = r"""
 # What is Burplist?
 
-🇸🇬 A collection of **craft beer** prices in Singapore at your fingertips.
-🔎 Think of it as a **search engine** for craft beers in Singapore.
+🔎 A free **search engine** for craft beers in Singapore.
+📊 **Compare** craft beer prices online with a simple search.
+❤️ Search for the cheapest **craft beer** in Singapore.
 💯 Prices are updated **daily**.
 
 ## What is craft beer?
@@ -65,7 +66,7 @@ landing_page_description = r"""
 ## How to use?
 
 🛒 Shopping for beers? Simply enter any beer _brand_, _style_, or _name_ in the search bar and hit _"Enter"_.
-🤑 Prices are ordered starting **from the lowest** to highest.
+🤑 Prices are ordered starting from the **lowest to highest**.
 🔙 To return to this main page, simply hit _"Ctrl/Cmd + R"_ to refresh the page.
 
 ## Is this free?
