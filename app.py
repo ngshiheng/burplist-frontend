@@ -1,20 +1,31 @@
 import os
 
+import sentry_sdk
 import tornado.ioloop
 import tornado.options
 import tornado.web
 from pywebio.platform.tornado import webio_handler as ws_webio_handler
 from pywebio.platform.tornado_http import webio_handler as http_webio_handler
+from sentry_sdk.integrations.tornado import TornadoIntegration
 from tornado.options import define, options
 
 from src.pages import feedback, index, privacy, terms
-from src.settings import ALLOWED_ORIGINS, RECONNECT_TIMEOUT, STATIC
+from src.settings import ALLOWED_ORIGINS, ENVIRONMENT, RECONNECT_TIMEOUT, SENTRY_DSN, STATIC
 
 define('port', default=8080, help='Run on the given port', type=int)
 define('debug', default=False, help='Run on the debug mode', type=bool)
 
 
+sentry_sdk.init(
+    dsn=SENTRY_DSN,
+    environment=ENVIRONMENT,
+    integrations=[TornadoIntegration()],
+)
+
+
 class FourOhFourHandler(tornado.web.RequestHandler):
+    """Page not found 404 handler"""
+
     def get(self, slug: str) -> None:
         del slug  # Unused
         self.render('src/templates/404.html')

@@ -41,3 +41,7 @@ RECONNECT_TIMEOUT = env.int('RECONNECT_TIMEOUT', default=60)
 STATIC = '/static/'
 
 ALLOWED_ORIGINS = env.list('ALLOWED_ORIGINS', default=['*://*.burplist.me'])
+
+# Sentry
+SENTRY_DSN = env.str('SENTRY_DSN')
+ENVIRONMENT = env.str('ENVIRONMENT', default='development')
