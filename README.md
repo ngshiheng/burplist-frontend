@@ -7,28 +7,44 @@
 
 # What is this?
 
-A frontend repository for https://burplist.me built using PyWebIO.
+A frontend repository for https://burplist.me built using [PyWebIO](https://github.com/pywebio/PyWebIO).
 
-We collect online craft beer prices in Singapore and share it with the craft beer lovers here in Singapore.
-
-The site acts as a search engine for craft beers in Singapore, providing craft beer lovers pricing information for their favorite beer.
-
-Say goodbye to browsing 10+ different sites at once to shop for your favorite craft beers.
+The site serves as a search engine for craft beers in Singapore, providing craft beer lovers pricing information for their favorite beer.
 
 # Development
 
-## `pg_trgm`
+## Requirements
 
-Ensure that `pg_trgm` is installed as your PostgreSQL extension.
+-   [Python](https://www.python.org/) 3.9+
+-   [poetry](https://python-poetry.org/docs/)
+-   [PostgreSQL](https://www.postgresql.org/)
 
-```sql
-CREATE EXTENSION pg_trgm;
-```
+## Database
+
+-   Make sure you have a running instance of the latest PostgreSQL in your local machine
+-   Example to spin up a PostgreSQL Docker instance locally
+
+    ```sh
+    docker run -d --name dpostgres -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust postgres:latest
+    ```
+
+-   Create a new database name as `burplist`
+-   Ensure that `pg_trgm` is installed as your PostgreSQL extension
+
+    ```sql
+    CREATE EXTENSION pg_trgm;
+    ```
 
 ## How to install
 
 ```sh
 poetry install
+
+# Installing dependencies only
+poetry install --no-root
+
+# Updating dependencies to their latest versions
+poetry update
 ```
 
 ## Setup Pre-commit Hooks
@@ -44,6 +60,8 @@ Some example useful invocations:
 
 Check out `/src/settings.py` and configure them accordingly.
 
+# Usage
+
 ## How to run locally
 
 ```sh
@@ -51,13 +69,17 @@ poetry run python3 app.py --debug=True --port=8080
 # At `http://localhost:8080/`
 ```
 
----
+## Start your database
+
+```sh
+docker start dpostgres
+```
 
 # Deployment
 
 This project is currently hosted on [Heroku](https://www.heroku.com/).
 
-## Useful Heroku commands
+## Optional: Useful Heroku commands
 
 ```sh
 heroku git:remote -a burplist-frontend-staging --staging
@@ -68,3 +90,16 @@ heroku logs --tail --remote staging
 # Print logs for production
 heroku logs --tail --remote heroku
 ```
+
+# Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Steps
+
+1. Fork this
+2. Create your feature branch (git checkout -b feature/fooBar)
+3. Please make sure you have installed the pre-commit hook and make sure it passes all the lint and format check
+4. Commit your changes (git commit -am 'Add some fooBar')
+5. Push to the branch (git push origin feature/fooBar)
+6. Create a new Pull Request
