@@ -71,8 +71,22 @@ poetry run python3 app.py --debug=True --port=8080
 
 ## Start your database
 
+You'll need to setup your Postgres locally based on the instructions [here](https://github.com/ngshiheng/burplist/#database). And then run:
+
 ```sh
 docker start dpostgres
+```
+
+## Optional: Using Docker
+
+```sh
+# Build the Docker image
+docker build -t burplist-frontend .
+
+# Run the image in a container
+docker run -d -p 8080:8080 --name burplist-frontend burplist-frontend
+
+# Go to localhost:8080 and DONE!
 ```
 
 # Deployment
