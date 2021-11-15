@@ -16,7 +16,7 @@ CACHE_MAXSIZE = env.int('CACHE_MAXSIZE', default=128)
 DATABASE_CONNECTION_STRING = '{drivername}://{user}:{password}@{host}:{port}/{db_name}'.format(
     drivername='postgresql',
     user=env.str('PG_USERNAME', default='postgres'),
-    password=env.str('PG_PASSWORD', default=''),
+    password=env.str('PG_PASSWORD', default='developmentpassword'),
     host=env.str('PG_HOST', default='localhost'),
     port=env.int('PG_PORT', default='5432'),
     db_name=env.str('PG_DATABASE', default='burplist'),
