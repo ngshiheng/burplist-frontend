@@ -7,13 +7,14 @@ from pywebio.input import TEXT, input
 from pywebio.io_ctrl import Output, OutputList
 from pywebio.output import clear, put_buttons, put_collapse, put_html, put_link, put_loading, put_markdown, put_table, put_text, scroll_to, style, use_scope
 from pywebio.platform import seo
+from pywebio.platform.page import config
 from pywebio.session import run_js, set_env
 from src.database.models import Product
 from src.database.utils import get_product_based_on_query, get_random_beer, get_random_beer_brand, get_random_beer_style, get_random_results_not_found_gif
 from src.settings import SEO_DESCRIPTION, SEO_TITLE
-from src.utils.constants import AMPLITUDE_TRACKING_SCRIPTS
+from src.utils.constants import GA_JS_CODE, GA_JS_FILE
 from src.utils.contents.charts import show_price_history_graph_popup
-from src.utils.contents.index import download_description, footer, header, landing_page_description, landing_page_heading, landing_page_subheading, load_css, product_hunt_feature_banner
+from src.utils.contents.index import DOWNLOAD_DESCRIPTION, FOOTER, HEADER, LANDING_PAGE_DESCRIPTION, LANDING_PAGE_HEADING, LANDING_PAGE_SUBHEADING, LOAD_CSS, PRODUCT_HUNT_FEATURED_BANNER
 from src.utils.validators import validate_search_length
 
 logger = logging.getLogger(__name__)
@@ -70,31 +71,25 @@ def generate_table_data(products: list[Product]) -> list[list[Union[Output, Outp
 
 
 @seo(SEO_TITLE, SEO_DESCRIPTION)
+@config(theme="minty", js_file=GA_JS_FILE, js_code=GA_JS_CODE)
 def index() -> None:
     """
-    Renders the main page of Burplist
+    Renders the home page of Burplist
     """
     set_env(auto_scroll_bottom=False)
 
     # JavaScript stuffs
-    run_js(header)
-    run_js(AMPLITUDE_TRACKING_SCRIPTS)
-    run_js("""
-    $('head').append('<script async src="https://www.googletagmanager.com/gtag/js?id=G-YW0GRZJ8MT"></script>')
-    """)
-    run_js("""
-    $('head').append("<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-YW0GRZJ8MT'); </script>")
-    """)
-    run_js(footer)
-    put_html(load_css)
+    run_js(HEADER)
+    run_js(FOOTER)
+    put_html(LOAD_CSS)
 
     # Page heading
-    put_html(landing_page_heading)
+    put_html(LANDING_PAGE_HEADING)
     with use_scope('introduction'):
-        put_html(product_hunt_feature_banner)
-        put_html(landing_page_subheading)
-        put_markdown(landing_page_description, lstrip=True)
-        put_markdown(download_description, lstrip=True)
+        put_html(PRODUCT_HUNT_FEATURED_BANNER)
+        put_html(LANDING_PAGE_SUBHEADING)
+        put_markdown(LANDING_PAGE_DESCRIPTION, lstrip=True)
+        put_markdown(DOWNLOAD_DESCRIPTION, lstrip=True)
 
     while True:
         suggested_brand = get_random_beer_brand()
