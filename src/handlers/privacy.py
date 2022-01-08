@@ -3,13 +3,13 @@ from pywebio.output import put_markdown
 from pywebio.platform import seo
 from pywebio.session import run_js
 from src.settings import SEO_DESCRIPTION, SEO_TITLE
-from src.utils.contents.index import footer, header
+from src.utils.contents.index import FOOTER, HEADER
 
 
 @seo(SEO_TITLE, SEO_DESCRIPTION)
 def privacy() -> None:
-    run_js(header)
-    run_js(footer)
+    run_js(HEADER)
+    run_js(FOOTER)
 
     put_markdown(
         r"""

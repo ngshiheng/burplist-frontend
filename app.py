@@ -9,7 +9,7 @@ from pywebio.platform.tornado_http import webio_handler as http_webio_handler
 from sentry_sdk.integrations.tornado import TornadoIntegration
 from tornado.options import define, options
 
-from src.pages import feedback, index, privacy, terms
+from src.handlers import feedback, index, privacy, terms
 from src.settings import ALLOWED_ORIGINS, ENVIRONMENT, RECONNECT_TIMEOUT, SENTRY_DSN, STATIC
 
 define('port', default=8080, help='Run on the given port', type=int)
@@ -32,6 +32,7 @@ class FourOhFourHandler(tornado.web.RequestHandler):
 
 
 def main() -> None:
+    """Main entrypoint of the app"""
     tornado.options.parse_command_line()
 
     settings = dict(
