@@ -71,7 +71,7 @@ def generate_table_data(products: list[Product]) -> list[list[Union[Output, Outp
 
 
 @seo(SEO_TITLE, SEO_DESCRIPTION)
-@config(theme="dark", js_file=GA_JS_FILE, js_code=GA_JS_CODE)
+@config(theme="minty", js_file=GA_JS_FILE, js_code=GA_JS_CODE)
 def index() -> None:
     """
     Renders the home page of Burplist
