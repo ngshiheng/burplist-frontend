@@ -16,7 +16,7 @@ pytz = "^2021.1"
 sentry-sdk = "==1.5.2"
 
 [tool.poetry.dev-dependencies]
-autopep8 = "1.5.7"
+autopep8 = "==1.6.0"
 flake8 = "==4.0.1"
 pylint = "2.12.2"
 pre-commit = "2.16.0"
