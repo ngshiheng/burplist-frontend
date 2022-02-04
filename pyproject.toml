@@ -5,11 +5,14 @@ name = "burplist-frontend"
 version = "0.0.0"
 
 [tool.poetry.dependencies]
-psycopg2-binary = "2.9.3"
+SQLAlchemy = "==1.4.31"
 cachetools = "==5.0.0"
 environs = "==9.5.0"
+psycopg2-binary = "2.9.3"
 pyecharts = "1.9.1"
+python = "^3.9"
 pytz = "^2021.1"
+pywebio = "1.5.2"
 sentry-sdk = "==1.5.4"
 
 [tool.poetry.dev-dependencies]
@@ -17,7 +20,6 @@ autopep8 = "==1.6.0"
 flake8 = "==4.0.1"
 pre-commit = "==2.17.0"
 pylint = "2.12.2"
-pre-commit = "==2.17.0"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
