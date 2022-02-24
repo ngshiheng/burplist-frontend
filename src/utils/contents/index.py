@@ -68,7 +68,7 @@ LANDING_PAGE_DESCRIPTION = r"""
 🛒 Shopping for beers? Simply enter any beer _brand_, _style_, or _name_ in the search bar and hit _"Enter"_.
 🤑 Prices are ordered starting from the **lowest to highest**.
 🔙 To return to this main page, simply hit _"Ctrl/Cmd + R"_ to refresh the page.
-⚡ For more a advanced search, use [Burplist x Polymer Search](https://app.polymersearch.com/jerrynsh/burplist)
+
 
 ## Is this free?
 
