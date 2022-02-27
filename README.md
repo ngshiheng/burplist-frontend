@@ -15,25 +15,25 @@ The site serves as a search engine for craft beers in Singapore, providing craft
 
 ## Requirements
 
-- [Python](https://www.python.org/) 3.9+
-- [poetry](https://python-poetry.org/docs/)
-- [PostgreSQL](https://www.postgresql.org/)
+-   [Python](https://www.python.org/) 3.9+
+-   [poetry](https://python-poetry.org/docs/)
+-   [PostgreSQL](https://www.postgresql.org/)
 
 ## Database
 
-- Make sure you have a running instance of the latest PostgreSQL in your local machine
-- Example to spin up a PostgreSQL Docker instance locally
+-   Make sure you have a running instance of the latest PostgreSQL in your local machine
+-   Example to spin up a PostgreSQL Docker instance locally
 
-  ```sh
-  docker run -d --name dpostgres -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust postgres:latest
-  ```
+    ```sh
+    docker run -d --name dpostgres -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust postgres:latest
+    ```
 
-- Create a new database name as `burplist`
-- Ensure that `pg_trgm` is installed as your PostgreSQL extension
+-   Create a new database name as `burplist`
+-   Ensure that `pg_trgm` is installed as your PostgreSQL extension
 
-  ```sql
-  CREATE EXTENSION pg_trgm;
-  ```
+    ```sql
+    CREATE EXTENSION pg_trgm;
+    ```
 
 ## How to install
 
@@ -53,8 +53,8 @@ Before you begin your development work, make sure you have installed [pre-commit
 
 Some example useful invocations:
 
-- `pre-commit install`: Default invocation. Installs the pre-commit script alongside any existing git hooks.
-- `pre-commit install --install-hooks --overwrite`: Idempotently replaces existing git hook scripts with pre-commit, and also installs hook environments.
+-   `pre-commit install`: Default invocation. Installs the pre-commit script alongside any existing git hooks.
+-   `pre-commit install --install-hooks --overwrite`: Idempotently replaces existing git hook scripts with pre-commit, and also installs hook environments.
 
 ## Optional: Environment variables
 
@@ -105,15 +105,14 @@ heroku logs --tail --remote staging
 heroku logs --tail --remote heroku
 ```
 
-# Contributing
+## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## Steps
+### Steps
 
 1. Fork this
-2. Create your feature branch (git checkout -b feature/fooBar)
-3. Please make sure you have installed the pre-commit hook and make sure it passes all the lint and format check
-4. Commit your changes (git commit -am 'Add some fooBar')
-5. Push to the branch (git push origin feature/fooBar)
-6. Create a new Pull Request
+2. Create your feature branch (`git checkout -b jimmy/fooBar`)
+3. Commit your changes (`git commit -am 'feat: add some fooBar'`, make sure that your commits are [semantic](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716))
+4. Push to the branch (`git push origin jimmy/fooBar`)
+5. Create a new Pull Request
