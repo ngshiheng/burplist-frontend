@@ -32,7 +32,7 @@ LAST_N_DAY_DATA = env.int('LAST_N_DAY_DATA', default=7)
 # SEO
 # ^^^
 SEO_TITLE = 'Burplist.me - Search Engine for Craft Beers in Singapore'
-SEO_DESCRIPTION = 'The best search engine for craft beers in Singapore. Browse for popular craft beers and find the best deals across 10+ sites.'
+SEO_DESCRIPTION = 'The best search engine for craft beers in Singapore. Browse for popular craft beers online and find the best deals across 10+ sites.'
 
 # Misc
 # ^^^^

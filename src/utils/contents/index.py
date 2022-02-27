@@ -74,11 +74,5 @@ LANDING_PAGE_DESCRIPTION = r"""
 
 🥳 Short answer: Yes.
 🙌 Long answer: _Yessssssssssss_.
-"""
-
-DOWNLOAD_DESCRIPTION = f"""
-## Can I download the data in a spreadsheet?
-
-🎁 Yes. Gain full access to **over 2,500+** unique craft beer prices and information from **10+ different websites**.
-👉 Click **[here]({GUMROAD_URL})** to view and download.
+🔧 Read about [how Burplist is made](https://jerrynsh.com/how-i-built-burplist-for-free/) free.
 """
