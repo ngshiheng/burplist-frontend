@@ -1,4 +1,4 @@
-from src.settings import CONTACT_EMAIL, GUMROAD_URL
+from src.settings import CONTACT_EMAIL
 
 # This page contains all the html contents corresponding to `src/index.py`
 
@@ -12,7 +12,7 @@ $('head').append('<link rel="icon" type="image/x-icon" href="/static/favicon/bur
 # Footer
 # ^^^^^^
 FOOTER = f"""
-$('FOOTER').html('👉 <a href="{GUMROAD_URL}" target="_blank">Download CSV</a> | ✉️ <a href="mailto:{CONTACT_EMAIL}" target="_blank">Contact</a> | 💡 <a href="/feedback">Feedback</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
+$('FOOTER').html('✉️ <a href="mailto:{CONTACT_EMAIL}" target="_blank">Contact</a> | 💡 <a href="/feedback">Feedback</a> | 📃 <a href="/terms">Terms of Use</a> | 🔏 <a href="/privacy">Privacy Policy</a>')
 """
 
 
@@ -74,5 +74,5 @@ LANDING_PAGE_DESCRIPTION = r"""
 
 🥳 Short answer: Yes.
 🙌 Long answer: _Yessssssssssss_.
-🔧 Read about [how Burplist is made](https://jerrynsh.com/how-i-built-burplist-for-free/) free.
+📚 Read about [how Burplist is made](https://jerrynsh.com/how-i-built-burplist-for-free/) free.
 """

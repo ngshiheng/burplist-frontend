@@ -14,7 +14,7 @@ from src.database.utils import get_product_based_on_query, get_random_beer, get_
 from src.settings import SEO_DESCRIPTION, SEO_TITLE
 from src.utils.constants import GA_JS_CODE, GA_JS_FILE, POPULAR_BEER_BRANDS, POPULAR_BEER_STYLES
 from src.utils.contents.charts import show_price_history_graph_popup
-from src.utils.contents.index import DOWNLOAD_DESCRIPTION, FOOTER, HEADER, LANDING_PAGE_DESCRIPTION, LANDING_PAGE_HEADING, LANDING_PAGE_SUBHEADING, LOAD_CSS, PRODUCT_HUNT_FEATURED_BANNER
+from src.utils.contents.index import FOOTER, HEADER, LANDING_PAGE_DESCRIPTION, LANDING_PAGE_HEADING, LANDING_PAGE_SUBHEADING, LOAD_CSS, PRODUCT_HUNT_FEATURED_BANNER
 from src.utils.validators import validate_search_length
 
 logger = logging.getLogger(__name__)
@@ -89,7 +89,6 @@ def index() -> None:
         put_html(PRODUCT_HUNT_FEATURED_BANNER)
         put_html(LANDING_PAGE_SUBHEADING)
         put_markdown(LANDING_PAGE_DESCRIPTION, lstrip=True)
-        put_markdown(DOWNLOAD_DESCRIPTION, lstrip=True)
 
     while True:
         suggested_brand = get_random_beer_brand()

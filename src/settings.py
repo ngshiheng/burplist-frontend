@@ -39,11 +39,6 @@ SEO_DESCRIPTION = 'The best search engine for craft beers in Singapore. Browse f
 CONTACT_EMAIL = env.str('CONTACT_EMAIL', default='')
 FEEDBACK_FORM_URL = env.str('FEEDBACK_FORM_URL', default='')
 
-# Gumroad
-# ^^^^^^^
-GUMROAD_DISCOUNT_CODE = env.str('GUMROAD_DISCOUNT_CODE', default='')
-GUMROAD_URL = f'https://gumroad.com/l/burplist/{GUMROAD_DISCOUNT_CODE}'
-
 
 # Sentry
 # ^^^^^^
