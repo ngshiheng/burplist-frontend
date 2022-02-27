@@ -6,7 +6,7 @@
         "E501",
     ],
     "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
+    "python.linting.pylintEnabled": false,
     "python.linting.flake8Args": [
         "--ignore",
         "E501",
@@ -14,5 +14,5 @@
     ],
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
 }

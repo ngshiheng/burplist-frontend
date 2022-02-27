@@ -12,7 +12,7 @@ from pywebio.session import run_js, set_env
 from src.database.models import Product
 from src.database.utils import get_product_based_on_query, get_random_beer, get_random_beer_brand, get_random_beer_style, get_random_results_not_found_gif
 from src.settings import SEO_DESCRIPTION, SEO_TITLE
-from src.utils.constants import GA_JS_CODE, GA_JS_FILE
+from src.utils.constants import GA_JS_CODE, GA_JS_FILE, POPULAR_BEER_BRANDS, POPULAR_BEER_STYLES
 from src.utils.contents.charts import show_price_history_graph_popup
 from src.utils.contents.index import DOWNLOAD_DESCRIPTION, FOOTER, HEADER, LANDING_PAGE_DESCRIPTION, LANDING_PAGE_HEADING, LANDING_PAGE_SUBHEADING, LOAD_CSS, PRODUCT_HUNT_FEATURED_BANNER
 from src.utils.validators import validate_search_length
@@ -105,6 +105,7 @@ def index() -> None:
             placeholder='Search for a platform, beer brand, style, or name...',
             help_text=help_text,
             validate=validate_search_length,
+            datalist=POPULAR_BEER_BRANDS + POPULAR_BEER_STYLES,
         )
 
         clear('result')
