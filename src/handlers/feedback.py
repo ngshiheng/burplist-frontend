@@ -9,7 +9,7 @@ from src.utils.contents.index import FOOTER, HEADER, LANDING_PAGE_HEADING
 
 
 @seo(SEO_TITLE, SEO_DESCRIPTION)
-@config(theme="minty", js_file=GA_JS_FILE, js_code=GA_JS_CODE)
+@config(theme="minty", js_file=[GA_JS_FILE], js_code=GA_JS_CODE)
 def feedback() -> None:
     run_js(HEADER)
     run_js(FOOTER)

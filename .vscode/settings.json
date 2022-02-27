@@ -1,5 +1,4 @@
 {
-    "python.pythonPath": "/home/jerryng/.cache/pypoetry/virtualenvs/burplist-frontend-Tsc2vMKS-py3.9/bin/python",
     "python.languageServer": "Pylance",
     "python.formatting.autopep8Args": [
         "--ignore",

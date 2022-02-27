@@ -87,7 +87,6 @@ POPULAR_BEER_BRANDS = [
     'Anderson Valley Brewing Co.',
     'Brothers',
     'Playground Brewery',
-    'Brewdog',
     'Wayward',
     'St. Bernardus',
     'Off Day Beer Company',

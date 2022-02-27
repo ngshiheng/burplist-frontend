@@ -9,7 +9,7 @@ from src.utils.contents.index import FOOTER, HEADER
 
 
 @seo(SEO_TITLE, SEO_DESCRIPTION)
-@config(theme="minty", js_file=GA_JS_FILE, js_code=GA_JS_CODE)
+@config(theme="minty", js_file=[GA_JS_FILE], js_code=GA_JS_CODE)
 def privacy() -> None:
     run_js(HEADER)
     run_js(FOOTER)
