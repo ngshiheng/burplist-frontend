@@ -11,6 +11,8 @@ A frontend repository for https://app.burplist.me built using [PyWebIO](https://
 
 The site serves as a search engine for craft beers in Singapore, providing craft beer lovers pricing information for their favorite beer.
 
+I have documented some of my thought process and engineering decisions while creating Burplist [here](https://jerrynsh.com/how-i-built-burplist-for-free/). Enjoy!
+
 # Development
 
 ## Requirements
