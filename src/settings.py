@@ -6,6 +6,12 @@ env.read_env()
 
 LOCAL_TIMEZONE = timezone('Asia/Singapore')
 
+RECONNECT_TIMEOUT = env.int('RECONNECT_TIMEOUT', default=60)
+
+STATIC = '/static/'
+
+ALLOWED_ORIGINS = env.list('ALLOWED_ORIGINS', default=['*://*.burplist.me'])
+
 # In-memory Caching
 # ^^^^^^^^^^^^^^^^^
 CACHE_TTL = env.int('CACHE_TTL', default=86_400)  # 24 hours
@@ -26,22 +32,20 @@ LAST_N_DAY_DATA = env.int('LAST_N_DAY_DATA', default=7)
 # SEO
 # ^^^
 SEO_TITLE = 'Burplist.me - Search Engine for Craft Beers in Singapore'
-SEO_DESCRIPTION = 'Compare craft beer prices online in Singapore.'
+SEO_DESCRIPTION = 'The best search engine for craft beers in Singapore. Browse for popular craft beers and find the best deals across 10+ sites.'
 
 # Misc
-CONTACT_EMAIL = env.str('CONTACT_EMAIL', default='hello@burplist.me')
-FEEDBACK_FORM_URL = env.str('FEEDBACK_FORM_URL', default='https://forms.gle/zsic1xAVLGD6MpVm8')
+# ^^^^
+CONTACT_EMAIL = env.str('CONTACT_EMAIL', default='')
+FEEDBACK_FORM_URL = env.str('FEEDBACK_FORM_URL', default='')
 
+# Gumroad
+# ^^^^^^^
 GUMROAD_DISCOUNT_CODE = env.str('GUMROAD_DISCOUNT_CODE', default='')
 GUMROAD_URL = f'https://gumroad.com/l/burplist/{GUMROAD_DISCOUNT_CODE}'
 
 
-RECONNECT_TIMEOUT = env.int('RECONNECT_TIMEOUT', default=60)
-
-STATIC = '/static/'
-
-ALLOWED_ORIGINS = env.list('ALLOWED_ORIGINS', default=['*://*.burplist.me'])
-
 # Sentry
+# ^^^^^^
 SENTRY_DSN = env.str('SENTRY_DSN', '')
 ENVIRONMENT = env.str('ENVIRONMENT', default='development')
