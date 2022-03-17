@@ -114,7 +114,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ### Steps
 
 1. Fork this
-2. Create your feature branch (`git checkout -b jimmy/fooBar`)
-3. Commit your changes (`git commit -am 'feat: add some fooBar'`, make sure that your commits are [semantic](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716))
-4. Push to the branch (`git push origin jimmy/fooBar`)
-5. Create a new Pull Request
+2. Create your feature branch (`git checkout -b feature/bar`)
+3. Please make sure you have installed the `pre-commit` hook and make sure it passes all the lint and format check
+4. Commit your changes (`git commit -am 'feat: add some bar'`, make sure that your commits are [semantic](https://www.conventionalcommits.org/en/v1.0.0/#summary))
+5. Push to the branch (`git push origin feature/bar`)
+6. Create a new Pull Request
