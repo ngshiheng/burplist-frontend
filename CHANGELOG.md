@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.1 (2022-03-20)
+### Fix
+* **deps:** Update dependency sentry-sdk to v1.5.8 ([`82e1cbf`](https://github.com/ngshiheng/burplist-frontend/commit/82e1cbfbf59c2c254ad991bb5f292a6f5813cfd6))
+
 ## v1.1.0 (2022-03-17)
 ### Feature
 * Add datalist for typeahead suggestions ([`237abfa`](https://github.com/ngshiheng/burplist-frontend/commit/237abfa7d21debaf90d04120601fcdcc8f2c4465))
