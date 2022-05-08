@@ -1,0 +1,24 @@
+name: Deployment
+on:
+    push:
+        branches:
+            - staging
+            - production
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Set environment for branch
+              run: |
+                  if [[ $GITHUB_REF == 'refs/heads/production' ]]; then
+                      echo "heroku_app_name=burplist-frontend" >> "$GITHUB_ENV"
+                  else
+                      echo "heroku_app_name=burplist-frontend-staging" >> "$GITHUB_ENV"
+                  fi
+            - name: Heroku Deploy
+              uses: akhileshns/heroku-deploy@v3.12.12
+              with:
+                  heroku_api_key: "${{ secrets.HEROKU_API_KEY }}"
+                  heroku_app_name: "${{ env.heroku_app_name }}"
+                  heroku_email: "${{ secrets.HEROKU_EMAIL }}"

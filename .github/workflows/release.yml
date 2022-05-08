@@ -1,11 +1,11 @@
----
 name: Release
-
 on:
     push:
         branches:
             - production
 jobs:
+    test:
+        uses: ./.github/workflows/test.yml
     semantic-release:
         runs-on: ubuntu-latest
         concurrency: release
@@ -16,4 +16,4 @@ jobs:
             - name: Semantic Release
               uses: relekang/python-semantic-release@master
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  github_token: "${{ secrets.GITHUB_TOKEN }}"
