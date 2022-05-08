@@ -9,6 +9,8 @@ jobs:
     semantic-release:
         runs-on: ubuntu-latest
         concurrency: release
+        needs:
+            - test
         steps:
             - uses: actions/checkout@v3
               with:
