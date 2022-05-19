@@ -2,6 +2,15 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.3 (2022-05-19)
+### Fix
+* **deps:** Update dependency sentry-sdk to v1.5.12 ([`136feae`](https://github.com/ngshiheng/burplist-frontend/commit/136feae547b095adb5772eea3630ba1616517a95))
+* **deps:** Update dependency sentry-sdk to v1.5.11 ([`ab4ae46`](https://github.com/ngshiheng/burplist-frontend/commit/ab4ae46d0741a585acc5419d5b69de7b444a23bf))
+* **deps:** Update dependency sqlalchemy to v1.4.36 ([`41e02a8`](https://github.com/ngshiheng/burplist-frontend/commit/41e02a8c54e3ee9313e87b994e4db0b19b77aa23))
+* **deps:** Update dependency sentry-sdk to v1.5.10 ([`b70f798`](https://github.com/ngshiheng/burplist-frontend/commit/b70f798da74f9b2c46a4a8e8b4d647c7d186f4e1))
+* **deps:** Update dependency sqlalchemy to v1.4.35 ([`d27d16b`](https://github.com/ngshiheng/burplist-frontend/commit/d27d16b931b1fe438cbe005f2753b0d5b0a8c581))
+* **deps:** Update dependency sqlalchemy to v1.4.34 ([`c840e34`](https://github.com/ngshiheng/burplist-frontend/commit/c840e3499422539b692c3f30531f84422d0fdee7))
+
 ## v1.1.2 (2022-03-27)
 ### Fix
 * **deps:** Update dependency pywebio to v1.6.0 ([`1aa72ad`](https://github.com/ngshiheng/burplist-frontend/commit/1aa72ade67141b3efedac09af2b0ef5fa3a53522))
