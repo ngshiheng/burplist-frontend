@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.5 (2022-06-04)
+### Fix
+* Semantic-release workaround ([`ae17a93`](https://github.com/ngshiheng/burplist-frontend/commit/ae17a93a5ed0f4224007f85c38c9e2ae1b9bbba1))
+
 ## v1.1.4 (2022-06-04)
 ### Fix
 * **deps:** Update dependency sqlalchemy to v1.4.37 ([`11bc782`](https://github.com/ngshiheng/burplist-frontend/commit/11bc7825193182374a4527b8219c355d0a420c3b))
