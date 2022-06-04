@@ -82,14 +82,16 @@ docker start dpostgres
 ## Optional: Using Docker
 
 ```sh
-# Build the Docker image
+# make build
 docker build -t burplist-frontend .
 
 # Run the image in a container
 docker run -d -p 8080:8080 --name burplist-frontend burplist-frontend
 
-# Go to localhost:8080 and DONE!
+
 ```
+
+Your server should be live at to http://localhost:8080.
 
 # Deployment
 
