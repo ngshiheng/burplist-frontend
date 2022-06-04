@@ -1,7 +1,7 @@
 [tool.poetry]
 authors = ["Jerry Ng <ngshiheng@gmail.com>"]
 description = "A frontend repository for the Burplist project."
-name = "burplist-frontend"
+name = "src"
 version = "1.1.4"
 
 [tool.poetry.dependencies]
