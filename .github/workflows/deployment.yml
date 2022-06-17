@@ -4,6 +4,10 @@ on:
         branches:
             - staging
             - production
+        paths:
+            - "**.py"
+            - "poetry.lock"
+            - "Procfile"
 jobs:
     deploy:
         runs-on: ubuntu-latest

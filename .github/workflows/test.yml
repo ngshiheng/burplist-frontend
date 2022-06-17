@@ -4,6 +4,9 @@ on:
         branches-ignore:
             - production
             - staging
+        paths:
+            - "**.py"
+            - "poetry.lock"
     workflow_call: null
 jobs:
     test:

@@ -3,6 +3,9 @@ on:
     push:
         branches:
             - production
+        paths:
+            - "**.py"
+            - "poetry.lock"
 jobs:
     test:
         uses: ./.github/workflows/test.yml
