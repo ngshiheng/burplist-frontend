@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.6 (2022-06-17)
+### Fix
+* **deps:** Update dependency cachetools to v5.2.0 ([`f3ecada`](https://github.com/ngshiheng/burplist-frontend/commit/f3ecada24a461bf1cdf5d1e7f542de79b71d25fc))
+
 ## v1.1.5 (2022-06-04)
 ### Fix
 * Semantic-release workaround ([`ae17a93`](https://github.com/ngshiheng/burplist-frontend/commit/ae17a93a5ed0f4224007f85c38c9e2ae1b9bbba1))
