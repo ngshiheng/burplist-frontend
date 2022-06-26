@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.7 (2022-06-26)
+### Fix
+* **deps:** Update dependency sentry-sdk to v1.6.0 ([`dd76f79`](https://github.com/ngshiheng/burplist-frontend/commit/dd76f7931661c6015443dd466ee0bf7bf228720d))
+* **deps:** Update dependency sqlalchemy to v1.4.39 ([`f3a273b`](https://github.com/ngshiheng/burplist-frontend/commit/f3a273b316d78102b15633ba502232928ce9282e))
+
 ## v1.1.6 (2022-06-17)
 ### Fix
 * **deps:** Update dependency cachetools to v5.2.0 ([`f3ecada`](https://github.com/ngshiheng/burplist-frontend/commit/f3ecada24a461bf1cdf5d1e7f542de79b71d25fc))
