@@ -367,7 +367,7 @@ python-versions = "*"
 
 [[package]]
 name = "pywebio"
-version = "1.6.1"
+version = "1.6.2"
 description = "Write interactive web app in script way."
 category = "main"
 optional = false
@@ -580,7 +580,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "9f3de125948f5f1c09af83216c6ac5e4d01cc356d17ca596b171db9e14b60f4d"
+content-hash = "d5250e81ec9e04b57adb6f246fec4a1dc67812e4b0f666f2fcb09062676b7359"
 
 [metadata.files]
 astroid = [
@@ -891,7 +891,7 @@ pytz = [
     {file = "pytz-2021.3.tar.gz", hash = "sha256:acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"},
 ]
 pywebio = [
-    {file = "pywebio-1.6.1.tar.gz", hash = "sha256:78160af549580cb7f1a2482b65f23a18645b303b162ba6be2b7325bd7e44feb6"},
+    {file = "pywebio-1.6.2.tar.gz", hash = "sha256:fbcc929ac50283a49447fb678d5ad4c1d4541b6605279b83d924de2ee1afd826"},
 ]
 pyyaml = [
     {file = "PyYAML-6.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d4db7c7aef085872ef65a8fd7d6d09a14ae91f691dec3e87ee5ee0539d516f53"},
