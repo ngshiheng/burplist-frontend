@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.8 (2022-07-23)
+### Fix
+* **deps:** Update dependency sentry-sdk to v1.8.0 ([`3b9da5c`](https://github.com/ngshiheng/burplist-frontend/commit/3b9da5cea38812989b82695290b450fe8314a1bb))
+* **deps:** Update dependency pywebio to v1.6.2 ([`36bc1fe`](https://github.com/ngshiheng/burplist-frontend/commit/36bc1fe3f37b2492bb1d862b24eef3160eb0d22a))
+* **deps:** Update dependency sentry-sdk to v1.7.2 ([`354378b`](https://github.com/ngshiheng/burplist-frontend/commit/354378bb5fb97ddace8d78b86306fd8ecfa6a525))
+
 ## v1.1.7 (2022-06-26)
 ### Fix
 * **deps:** Update dependency sentry-sdk to v1.6.0 ([`dd76f79`](https://github.com/ngshiheng/burplist-frontend/commit/dd76f7931661c6015443dd466ee0bf7bf228720d))
