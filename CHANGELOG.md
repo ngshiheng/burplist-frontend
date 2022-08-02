@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.9 (2022-08-02)
+### Fix
+* **deps:** Update dependency sentry-sdk to v1.9.0 ([`faee570`](https://github.com/ngshiheng/burplist-frontend/commit/faee570a700d726405b1f5be35b6a583522fc78b))
+
 ## v1.1.8 (2022-07-23)
 ### Fix
 * **deps:** Update dependency sentry-sdk to v1.8.0 ([`3b9da5c`](https://github.com/ngshiheng/burplist-frontend/commit/3b9da5cea38812989b82695290b450fe8314a1bb))
