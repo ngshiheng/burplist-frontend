@@ -16,7 +16,7 @@ pywebio = "==1.6.2"
 sentry-sdk = "==1.9.4"
 
 [tool.poetry.dev-dependencies]
-autopep8 = "==1.6.0"
+autopep8 = "==1.7.0"
 flake8 = "==5.0.4"
 pre-commit = "==2.20.0"
 pylint = "==2.14.5"
