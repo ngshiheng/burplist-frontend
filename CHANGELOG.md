@@ -2,6 +2,14 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.10 (2022-08-20)
+### Fix
+* **deps:** Update dependency pytz to v2022 ([`95784a3`](https://github.com/ngshiheng/burplist-frontend/commit/95784a3a6e97506cb5c4234a84376abdaa873eaa))
+* **deps:** Update dependency sentry-sdk to v1.9.5 ([`4534af5`](https://github.com/ngshiheng/burplist-frontend/commit/4534af5c9363074a1c3042b128b670561e73b9d8))
+* **deps:** Update dependency sqlalchemy to v1.4.40 ([`fd7acbe`](https://github.com/ngshiheng/burplist-frontend/commit/fd7acbe8cfa7a50604c14d09c06398230df53cd3))
+* **deps:** Update dependency sentry-sdk to v1.9.4 ([`1bf9874`](https://github.com/ngshiheng/burplist-frontend/commit/1bf987485b7faf3f0c98df61ff9ae559580a82cd))
+* **deps:** Update dependency sentry-sdk to v1.9.2 ([`bc301c3`](https://github.com/ngshiheng/burplist-frontend/commit/bc301c3fc4bff085adfb263fe9fc0346f476af58))
+
 ## v1.1.9 (2022-08-02)
 ### Fix
 * **deps:** Update dependency sentry-sdk to v1.9.0 ([`faee570`](https://github.com/ngshiheng/burplist-frontend/commit/faee570a700d726405b1f5be35b6a583522fc78b))
