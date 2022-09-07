@@ -1,21 +1,25 @@
-FROM python:3.9-slim as python-base
-ENV PYTHONUNBUFFERED=1 \
+ARG PYTHON_VERSION=3.9
+
+FROM python:${PYTHON_VERSION}-slim AS base
+ARG DEBUG=false \
+    PG_HOST=172.17.0.1
+ENV DEBUG=${DEBUG} \
+    PG_HOST=${PG_HOST} \
+    PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
     PIP_DEFAULT_TIMEOUT=100 \
     POETRY_VERSION=1.1.15 \
-    POETRY_NO_INTERACTION=1 \
-    PG_HOST=172.17.0.1
+    POETRY_NO_INTERACTION=1
 
-WORKDIR /app
-
-FROM python-base as build-base
+FROM base AS builder
 RUN pip install "poetry==$POETRY_VERSION"
-
-COPY pyproject.toml poetry.lock ./
+WORKDIR app
+COPY pyproject.toml /app/
+COPY poetry.lock /app/
 RUN poetry install --no-root
 
-FROM build-base as final-build
-COPY . .
+FROM builder AS app
+COPY . /app/
 CMD ["./docker-entrypoint.sh"]

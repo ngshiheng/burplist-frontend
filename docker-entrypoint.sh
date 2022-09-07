@@ -2,4 +2,4 @@
 
 set -e
 
-exec poetry run python3 app.py --port=8080 "--debug=False", "--port=8080"
+exec poetry run python3 app.py --debug="${DEBUG}"
