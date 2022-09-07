@@ -1,11 +1,7 @@
 ARG PYTHON_VERSION=3.9
 
 FROM python:${PYTHON_VERSION}-slim AS base
-ARG DEBUG=false \
-    PG_HOST=172.17.0.1
-ENV DEBUG=${DEBUG} \
-    PG_HOST=${PG_HOST} \
-    PYTHONUNBUFFERED=1 \
+ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
@@ -21,5 +17,19 @@ COPY poetry.lock /app/
 RUN poetry install --no-root
 
 FROM builder AS app
+ARG PG_USERNAME="postgres" \
+    PG_PASSWORD="" \
+    PG_HOST="localhost" \
+    PG_PORT="5432" \
+    PG_DATABASE="burplist" \
+    DEBUG="false"
+
+ENV PG_USERNAME=${PG_USERNAME} \
+    PG_PASSWORD=${PG_PASSWORD} \
+    PG_HOST=${PG_HOST} \
+    PG_PORT=${PG_PORT} \
+    PG_DATABASE=${PG_DATABASE} \
+    DEBUG=${DEBUG}
+
 COPY . /app/
 CMD ["./docker-entrypoint.sh"]
