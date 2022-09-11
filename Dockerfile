@@ -10,26 +10,16 @@ ENV PYTHONUNBUFFERED=1 \
     POETRY_NO_INTERACTION=1
 
 FROM base AS builder
+ARG ENVIRONMENT
+ENV ENVIRONMENT=${ENVIRONMENT}
 RUN pip install "poetry==$POETRY_VERSION"
 WORKDIR app
 COPY pyproject.toml /app/
 COPY poetry.lock /app/
-RUN poetry install --no-root --no-dev
+RUN poetry install --no-root \
+    $(if [ "$ENVIRONMENT" = 'production' ]; then echo '--no-dev'; fi) \
+    --no-interaction --no-ansi
 
 FROM builder AS app
-ARG PG_USERNAME="postgres" \
-    PG_PASSWORD="" \
-    PG_HOST="localhost" \
-    PG_PORT="5432" \
-    PG_DATABASE="burplist" \
-    DEBUG="false"
-
-ENV PG_USERNAME=${PG_USERNAME} \
-    PG_PASSWORD=${PG_PASSWORD} \
-    PG_HOST=${PG_HOST} \
-    PG_PORT=${PG_PORT} \
-    PG_DATABASE=${PG_DATABASE} \
-    DEBUG=${DEBUG}
-
 COPY . /app/
 CMD ["./docker-entrypoint.sh"]
