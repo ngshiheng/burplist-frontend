@@ -14,7 +14,7 @@ RUN pip install "poetry==$POETRY_VERSION"
 WORKDIR app
 COPY pyproject.toml /app/
 COPY poetry.lock /app/
-RUN poetry install --no-root
+RUN poetry install --no-root --no-dev
 
 FROM builder AS app
 ARG PG_USERNAME="postgres" \
