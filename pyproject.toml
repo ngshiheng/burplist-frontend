@@ -13,7 +13,7 @@ pyecharts = "1.9.1"
 python = "^3.9"
 pytz = "2022.2.1"
 pywebio = "==1.6.3"
-sentry-sdk = "==1.9.8"
+sentry-sdk = "==1.9.9"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "==1.7.0"
