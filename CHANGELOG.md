@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.13 (2022-10-07)
+### Fix
+* **deps:** Update dependency psycopg2-binary to v2.9.4 ([`faf6636`](https://github.com/ngshiheng/burplist-frontend/commit/faf6636249c7be2345275f9c1b59c3ad376163a4))
+* **deps:** Update dependency pytz to v2022.4 ([`dfa946d`](https://github.com/ngshiheng/burplist-frontend/commit/dfa946d10ae7c6454eaa704201882695f5324062))
+* **deps:** Update dependency sentry-sdk to v1.9.9 ([`3419aee`](https://github.com/ngshiheng/burplist-frontend/commit/3419aee1360b63d91a8acc4e821e39f05fc068e6))
+
 ## v1.1.12 (2022-09-11)
 ### Fix
 * **deps:** Update dependency sqlalchemy to v1.4.41 ([`3909345`](https://github.com/ngshiheng/burplist-frontend/commit/3909345fb9a329bb083771a776cd3cc69902a106))
