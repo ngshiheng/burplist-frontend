@@ -2,6 +2,19 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.14 (2022-11-05)
+### Fix
+* **deps:** Update dependency sqlalchemy to v1.4.42 ([`24d2660`](https://github.com/ngshiheng/burplist-frontend/commit/24d2660ad1fc73f035136a4ce78e81fe958f47f0))
+* **deps:** Update dependency sqlalchemy to v1.4.43 ([`b49175a`](https://github.com/ngshiheng/burplist-frontend/commit/b49175af5ac209ea24f4b1825a24029354ce3c93))
+* **deps:** Update dependency pytz to v2022.6 ([`d5c3b76`](https://github.com/ngshiheng/burplist-frontend/commit/d5c3b76321849932f1a6f5239580df954ff4490c))
+* **deps:** Update dependency sentry-sdk to v1.10.1 ([`23b28fe`](https://github.com/ngshiheng/burplist-frontend/commit/23b28fe6f76c127b1ccdb8885587e3925f6dd859))
+* **deps:** Update dependency pywebio to v1.7.0 ([`10d58ef`](https://github.com/ngshiheng/burplist-frontend/commit/10d58ef719e6844882fd7f6b925c5244d3fe6eec))
+* **deps:** Update dependency psycopg2-binary to v2.9.5 ([`ecf9c17`](https://github.com/ngshiheng/burplist-frontend/commit/ecf9c17de7f4dc51390b9c3bad47156394daa773))
+* **deps:** Update dependency pytz to v2022.5 ([`a60ec83`](https://github.com/ngshiheng/burplist-frontend/commit/a60ec832a412b47ad89d36d8d915f03f031108dc))
+* **deps:** Update dependency sqlalchemy to v1.4.42 ([`0d367e0`](https://github.com/ngshiheng/burplist-frontend/commit/0d367e0394cc9ab9207d2f857bc64dbfeb919990))
+* **deps:** Update dependency psycopg2-binary to v2.9.4 ([`162acef`](https://github.com/ngshiheng/burplist-frontend/commit/162acefa57bcf9d4a988ea2a3a808c76748d2ccc))
+* **deps:** Update dependency sentry-sdk to v1.9.10 ([`f404f1b`](https://github.com/ngshiheng/burplist-frontend/commit/f404f1ba5588bd8180045a599b411d83514ea01a))
+
 ## v1.1.13 (2022-10-07)
 ### Fix
 * **deps:** Update dependency psycopg2-binary to v2.9.4 ([`faf6636`](https://github.com/ngshiheng/burplist-frontend/commit/faf6636249c7be2345275f9c1b59c3ad376163a4))
