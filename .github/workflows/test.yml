@@ -2,8 +2,7 @@ name: test
 on:
     push:
         branches-ignore:
-            - production
-            - staging
+            - main
         paths:
             - "**.py"
             - "poetry.lock"
