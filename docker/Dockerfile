@@ -22,4 +22,4 @@ RUN poetry install --no-root \
 
 FROM builder AS app
 COPY . /app/
-CMD ["./docker-entrypoint.sh"]
+CMD ["./docker/docker-entrypoint.sh"]

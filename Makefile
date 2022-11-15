@@ -37,7 +37,7 @@ lint:
 	$(POETRY) run flake8 --statistics --ignore=W503,E501 --show-source
 
 build:
-	$(DOCKER) build -t $(NAME) . --build-arg ENVIRONMENT=$(ENVIRONMENT)
+	$(DOCKER) build -t $(NAME) . --build-arg ENVIRONMENT=$(ENVIRONMENT) -f docker/Dockerfile
 
 .PHONY: run
 run:
