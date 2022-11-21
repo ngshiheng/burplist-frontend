@@ -1,6 +1,6 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "baseBranches": ["staging"],
+    "baseBranches": ["main"],
     "dependencyDashboard": true,
     "dependencyDashboardAutoclose": true,
     "docker": {
