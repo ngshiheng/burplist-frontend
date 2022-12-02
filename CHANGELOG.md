@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.15 (2022-12-02)
+### Fix
+* Set pool_pre_ping to True ([`9080c09`](https://github.com/ngshiheng/burplist-frontend/commit/9080c09a0004338f4a96c28f5af42dcdd9900a0a))
+* Poetry lock file ([`4b6c419`](https://github.com/ngshiheng/burplist-frontend/commit/4b6c4196f8a6624ac8013b6b4fc70555228057ff))
+* **deps:** Update dependency sqlalchemy to v1.4.44 ([`e410996`](https://github.com/ngshiheng/burplist-frontend/commit/e4109967d3935378b54da7d02897b32bcb7826da))
+
 ## v1.1.14 (2022-11-05)
 ### Fix
 * **deps:** Update dependency sqlalchemy to v1.4.42 ([`24d2660`](https://github.com/ngshiheng/burplist-frontend/commit/24d2660ad1fc73f035136a4ce78e81fe958f47f0))
