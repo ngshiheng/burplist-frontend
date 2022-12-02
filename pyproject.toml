@@ -19,7 +19,7 @@ sentry-sdk = "==1.10.1"
 autopep8 = "==1.7.1"
 flake8 = "==5.0.4"
 pre-commit = "==2.20.0"
-pylint = "==2.15.5"
+pylint = "==2.15.7"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
