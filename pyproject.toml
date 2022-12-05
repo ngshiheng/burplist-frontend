@@ -17,7 +17,7 @@ sentry-sdk = "==1.10.1"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "==1.7.1"
-flake8 = "==5.0.4"
+flake8 = "==6.0.0"
 pre-commit = "==2.20.0"
 pylint = "==2.15.7"
 
