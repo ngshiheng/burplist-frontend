@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.18 (2022-12-18)
+### Fix
+* **deps:** Update dependency pytz to v2022.7 ([`c4ac472`](https://github.com/ngshiheng/burplist-frontend/commit/c4ac47224170237f29a025906694c8bb5dda228a))
+
 ## v1.1.17 (2022-12-18)
 ### Fix
 * **deps:** Update dependency sqlalchemy to v1.4.45 ([`5eab826`](https://github.com/ngshiheng/burplist-frontend/commit/5eab8267f59d4b49c3247e8f1da49132390ee2de))
