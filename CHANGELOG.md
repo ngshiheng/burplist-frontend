@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.17 (2022-12-18)
+### Fix
+* **deps:** Update dependency sqlalchemy to v1.4.45 ([`5eab826`](https://github.com/ngshiheng/burplist-frontend/commit/5eab8267f59d4b49c3247e8f1da49132390ee2de))
+
 ## v1.1.16 (2022-12-18)
 ### Fix
 * **deps:** Update dependency pywebio to v1.7.1 ([`5274f6e`](https://github.com/ngshiheng/burplist-frontend/commit/5274f6ed5b8424a9328feeba08331d45d337a33c))
