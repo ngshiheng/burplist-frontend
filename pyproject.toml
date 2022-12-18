@@ -5,7 +5,7 @@ name = "src"
 version = "1.1.16"
 
 [tool.poetry.dependencies]
-SQLAlchemy = "==1.4.44"
+SQLAlchemy = "==1.4.45"
 cachetools = "==5.2.0"
 environs = "==9.5.0"
 psycopg2-binary = "==2.9.5"
