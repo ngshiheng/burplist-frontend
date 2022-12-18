@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.19 (2022-12-18)
+### Fix
+* **deps:** Update dependency sentry-sdk to v1.12.0 ([`fd18335`](https://github.com/ngshiheng/burplist-frontend/commit/fd18335f8f0b552aca8a3ea78cb81963bbd32fb7))
+
 ## v1.1.18 (2022-12-18)
 ### Fix
 * **deps:** Update dependency pytz to v2022.7 ([`c4ac472`](https://github.com/ngshiheng/burplist-frontend/commit/c4ac47224170237f29a025906694c8bb5dda228a))
