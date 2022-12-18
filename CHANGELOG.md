@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.16 (2022-12-18)
+### Fix
+* **deps:** Update dependency pywebio to v1.7.1 ([`5274f6e`](https://github.com/ngshiheng/burplist-frontend/commit/5274f6ed5b8424a9328feeba08331d45d337a33c))
+
 ## v1.1.15 (2022-12-02)
 ### Fix
 * Set pool_pre_ping to True ([`9080c09`](https://github.com/ngshiheng/burplist-frontend/commit/9080c09a0004338f4a96c28f5af42dcdd9900a0a))
