@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.22 (2023-01-14)
+### Fix
+* **deps:** Update dependency cachetools to v5.2.1 ([`c4ab2db`](https://github.com/ngshiheng/burplist-frontend/commit/c4ab2dbc335553eb6fad458e43a9a9a835983a98))
+
 ## v1.1.21 (2023-01-06)
 ### Fix
 * **deps:** Update dependency sqlalchemy to v1.4.46 ([`aeb8ab7`](https://github.com/ngshiheng/burplist-frontend/commit/aeb8ab7d27c97703d8525b55712f6a0e1d0cbf7a))
