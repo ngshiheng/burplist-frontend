@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.23 (2023-01-14)
+### Fix
+* **deps:** Update dependency sentry-sdk to v1.13.0 ([`1492b9b`](https://github.com/ngshiheng/burplist-frontend/commit/1492b9b5bc160f0043c3b4c289ac111cfe981f28))
+
 ## v1.1.22 (2023-01-14)
 ### Fix
 * **deps:** Update dependency cachetools to v5.2.1 ([`c4ab2db`](https://github.com/ngshiheng/burplist-frontend/commit/c4ab2dbc335553eb6fad458e43a9a9a835983a98))
