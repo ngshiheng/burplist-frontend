@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.25 (2023-01-27)
+### Fix
+* **deps:** Update dependency cachetools to v5.3.0 ([`eeee863`](https://github.com/ngshiheng/burplist-frontend/commit/eeee863b4319efeeeedf4a6bcac0f171126503b3))
+
 ## v1.1.24 (2023-01-14)
 ### Fix
 * **deps:** Update dependency pytz to v2022.7.1 ([`e055149`](https://github.com/ngshiheng/burplist-frontend/commit/e0551495fbb520a1582b40821971603766e00962))
