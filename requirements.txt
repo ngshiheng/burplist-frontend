@@ -213,9 +213,9 @@ pytz==2022.7.1; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:78f4f37d8198e0627c5f1143240bb0206b8691d8d7ac6d78fee88b78733f8c4a
 pywebio==1.7.1; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:853d103f0a46af8d8170d35fd7a1ea042fe125c7ec56cf5180e8fde212e5eed9
-sentry-sdk==1.15.0; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:69ecbb2e1ff4db02a06c4f20f6f69cb5dfe3ebfbc06d023e40d77cf78e9c37e7 \
-    --hash=sha256:7ad4d37dd093f4a7cb5ad804c6efe9e8fab8873f7ffc06042dc3f3fd700a93ec
+sentry-sdk==1.16.0; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:633edefead34d976ff22e7edc367cdf57768e24bc714615ccae746d9d91795ae \
+    --hash=sha256:a900845bd78c263d49695d48ce78a4bce1030bbd917e0b6cc021fc000c901113
 simplejson==3.18.3; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:04a4b9a297cccbc9e1d66fe652fbffd55b36d6579c43132e821d315957302194 \
     --hash=sha256:063db62a9251e61ea0c17e49c3e7bed465bfcc5359655abcb8c0bc6130a4e0d4 \
