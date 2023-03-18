@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.28 (2023-03-18)
+### Fix
+* **deps:** Update dependency sqlalchemy to v1.4.47 ([`cc555dc`](https://github.com/ngshiheng/burplist-frontend/commit/cc555dcf5aa14c02a42d855e6045c3cba6845139))
+
 ## v1.1.27 (2023-03-18)
 ### Fix
 * **deps:** Update dependency sentry-sdk to v1.17.0 ([`45e65ee`](https://github.com/ngshiheng/burplist-frontend/commit/45e65ee2f99480344a74527fd87703676cb0b633))
