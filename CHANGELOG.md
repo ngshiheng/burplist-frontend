@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.30 (2023-04-08)
+### Fix
+* **deps:** Update dependency psycopg2-binary to v2.9.6 ([`f534e4d`](https://github.com/ngshiheng/burplist-frontend/commit/f534e4da38758d66a9ad061e641872ee9dadcf16))
+
 ## v1.1.29 (2023-03-31)
 ### Fix
 * **deps:** Update dependency sentry-sdk to v1.18.0 ([`8f203b2`](https://github.com/ngshiheng/burplist-frontend/commit/8f203b230f3aadf2bec3475ace34cbbfd2b7e78d))
