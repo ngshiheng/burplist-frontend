@@ -2,7 +2,7 @@
 authors = ["Jerry Ng <ngshiheng@gmail.com>"]
 description = "A frontend repository for the Burplist project."
 name = "src"
-version = "1.1.30"
+version = "1.1.31"
 
 [tool.poetry.dependencies]
 SQLAlchemy = "==1.4.47"
