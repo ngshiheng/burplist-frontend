@@ -202,8 +202,8 @@ python-dotenv==0.21.1; python_version >= "3.9" and python_version < "4.0" \
 pytz==2022.7.1; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:01a0681c4b9684a28304615eba55d1ab31ae00bf68ec157ec3708a8182dbbcd0 \
     --hash=sha256:78f4f37d8198e0627c5f1143240bb0206b8691d8d7ac6d78fee88b78733f8c4a
-pywebio==1.8.0; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:380ca9ca0d686a4e8661deeb3684c8f35e58cfb64e8373d78aa63093b0b297de
+pywebio==1.8.1; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:37bd346210a7a0b2840e8c7bb4aa6cb81fac3a36c4425b0dd5075a1161bb517d
 sentry-sdk==1.19.1; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:7ae78bd921981a5010ab540d6bdf3b793659a4db8cccf7f16180702d48a80d84 \
     --hash=sha256:885a11c69df23e53eb281d003b9ff15a5bdfa43d8a2a53589be52104a1b4582f

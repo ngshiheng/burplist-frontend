@@ -660,13 +660,13 @@ files = [
 
 [[package]]
 name = "pywebio"
-version = "1.8.0"
+version = "1.8.1"
 description = "Write interactive web app in script way."
 category = "main"
 optional = false
 python-versions = ">=3.5.2"
 files = [
-    {file = "pywebio-1.8.0.tar.gz", hash = "sha256:380ca9ca0d686a4e8661deeb3684c8f35e58cfb64e8373d78aa63093b0b297de"},
+    {file = "pywebio-1.8.1.tar.gz", hash = "sha256:37bd346210a7a0b2840e8c7bb4aa6cb81fac3a36c4425b0dd5075a1161bb517d"},
 ]
 
 [package.dependencies]
@@ -1147,4 +1147,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "fa77620b0e462b55ef783169b34e689ef0516f0edb11a2a4ec28c1bfaefced35"
+content-hash = "fba79f3b3ac4dbd5544ef23280dbf6b0971b29f3edce54c3c30cbd404213c918"
