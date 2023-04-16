@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.33 (2023-04-16)
+### Fix
+* **deps:** Update dependency pywebio to v1.8.1 ([`73244ff`](https://github.com/ngshiheng/burplist-frontend/commit/73244ff2d93b218eb3a6d6fabea29eae40ae5f15))
+
 ## v1.1.32 (2023-04-14)
 ### Fix
 * **deps:** Update dependency pywebio to v1.8.0 ([`edd8ed4`](https://github.com/ngshiheng/burplist-frontend/commit/edd8ed4b50b80d168fb09786a9deab068d8712d8))
