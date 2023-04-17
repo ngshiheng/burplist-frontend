@@ -23,7 +23,7 @@ def privacy() -> None:
 
     ### Privacy Policy
 
-    Your privacy is important to us. It is Burplist's policy to respect your privacy and comply with any applicable law and regulation regarding any personal information we may collect about you, including across our website, [https://burplist.me](https://burplist.me/), and other sites we own and operate.
+    Your privacy is important to us. It is Burplist's policy to respect your privacy and comply with any applicable law and regulation regarding any personal information we may collect about you, including across our website, [https://burplist.com](https://burplist.com/), and other sites we own and operate.
 
 
     ### Information We Collect
@@ -122,6 +122,6 @@ def privacy() -> None:
     For any questions or concerns regarding your privacy, you may contact us using the following details:
 
     Burplist
-    [hello@burplist.me](mailto:hello@burplist.me)
+    [hello@burplist.com](mailto:hello@burplist.com)
     """, lstrip=True,
     )

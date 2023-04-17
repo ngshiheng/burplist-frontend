@@ -7,7 +7,7 @@
 
 # What is this?
 
-A frontend repository for https://burplist.me built using [PyWebIO](https://github.com/pywebio/PyWebIO).
+A frontend repository for https://burplist.com built using [PyWebIO](https://github.com/pywebio/PyWebIO).
 
 The site serves as a search engine for craft beers in Singapore, providing craft beer lovers pricing information for their favorite beer.
 

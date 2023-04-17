@@ -10,7 +10,7 @@ RECONNECT_TIMEOUT = env.int('RECONNECT_TIMEOUT', default=60)
 
 STATIC = '/static/'
 
-ALLOWED_ORIGINS = env.list('ALLOWED_ORIGINS', default=['*://*.burplist.me'])
+ALLOWED_ORIGINS = env.list('ALLOWED_ORIGINS', default=['*://*.burplist.com'])
 
 # In-memory Caching
 # ^^^^^^^^^^^^^^^^^
@@ -31,7 +31,7 @@ LAST_N_DAY_DATA = env.int('LAST_N_DAY_DATA', default=7)
 
 # SEO
 # ^^^
-SEO_TITLE = 'Burplist.me - Search Engine for Craft Beers in Singapore'
+SEO_TITLE = 'Burplist.com - Search Engine for Craft Beers in Singapore'
 SEO_DESCRIPTION = 'The best search engine for craft beers in Singapore. Browse for popular craft beers online and find the best deals across 10+ sites.'
 
 # Misc
