@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.35 (2023-04-17)
+### Fix
+* Revert pywebio to 1.7.1 ([`d64cf4c`](https://github.com/ngshiheng/burplist-frontend/commit/d64cf4c60389046bca28d62ecb6dbb5ac1742ac1))
+
 ## v1.1.34 (2023-04-17)
 ### Fix
 * Update domain name ([`ff278a9`](https://github.com/ngshiheng/burplist-frontend/commit/ff278a9d8eb22e1a3f9889ae834c2edafa4dd39c))
