@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.34 (2023-04-17)
+### Fix
+* Update domain name ([`ff278a9`](https://github.com/ngshiheng/burplist-frontend/commit/ff278a9d8eb22e1a3f9889ae834c2edafa4dd39c))
+
 ## v1.1.33 (2023-04-16)
 ### Fix
 * **deps:** Update dependency pywebio to v1.8.1 ([`73244ff`](https://github.com/ngshiheng/burplist-frontend/commit/73244ff2d93b218eb3a6d6fabea29eae40ae5f15))
