@@ -12,7 +12,7 @@ psycopg2-binary = "==2.9.6"
 pyecharts = "1.9.1"
 python = "^3.9"
 pytz = "==2022.7.1"
-pywebio = "1.8.2"
+pywebio = "1.7.1"
 sentry-sdk = "==1.20.0"
 
 [tool.poetry.dev-dependencies]

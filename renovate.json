@@ -6,7 +6,7 @@
     "docker": {
         "enabled": false
     },
-    "extends": ["config:base", ":semanticCommits"],
+    "extends": ["config:base", ":semanticCommits", "schedule:monthly"],
     "packageRules": [
         {
             "description": "Automatically merges minor and patch-level updates",
@@ -21,12 +21,11 @@
             "prCreation": "immediate"
         },
         {
-            "matchPackageNames": ["relekang/python-semantic-release"],
+            "matchPackageNames": ["pywebio"],
             "enabled": false
         }
     ],
     "rangeStrategy": "pin",
     "rebaseWhen": "auto",
-    "schedule": ["every weekend"],
     "timezone": "Asia/Singapore"
 }
