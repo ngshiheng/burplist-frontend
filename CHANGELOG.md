@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.40 (2023-05-31)
+### Fix
+
+* **deps:** Update dependency sentry-sdk to v1.24.0 ([`c3bfc05`](https://github.com/ngshiheng/burplist-frontend/commit/c3bfc0536b4edae1566f14e7b79b809b0130891e))
+
 ## v1.1.39 (2023-04-29)
 ### Fix
 * Disable pywebio update ([`df50053`](https://github.com/ngshiheng/burplist-frontend/commit/df50053b7b2001d161c263ccbb76a32503b98b36))
