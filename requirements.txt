@@ -118,9 +118,9 @@ marshmallow==3.19.0 ; python_version >= "3.9" and python_version < "4.0" \
 packaging==22.0 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3 \
     --hash=sha256:957e2148ba0e1a3b282772e791ef1d8083648bc131c8ab0c1feba110ce1146c3
-prettytable==3.5.0 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:52f682ba4efe29dccb38ff0fe5bac8a23007d0780ff92a8b85af64bc4fc74d72 \
-    --hash=sha256:fe391c3b545800028edf5dbb6a5360893feb398367fcc1cf8d7a5b29ce5c59a1
+prettytable==3.8.0; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:031eae6a9102017e8c7c7906460d150b7ed78b20fd1d8c8be4edaf88556c07ce \
+    --hash=sha256:03481bca25ae0c28958c8cd6ac5165c159ce89f7ccde04d5c899b24b68bb13b7
 psycopg2-binary==2.9.6 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:02c0f3757a4300cf379eb49f543fb7ac527fb00144d39246ee40e1df684ab514 \
     --hash=sha256:02c6e3cf3439e213e4ee930308dc122d6fb4d4bea9aef4a12535fbd605d1a2fe \
