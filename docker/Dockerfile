@@ -17,7 +17,7 @@ WORKDIR app
 COPY pyproject.toml /app/
 COPY poetry.lock /app/
 RUN poetry install --no-root \
-    $(if [ "$ENVIRONMENT" = 'production' ]; then echo '--no-dev'; fi) \
+    $(if [ "$ENVIRONMENT" = 'production' ]; then echo '--only main'; fi) \
     --no-interaction --no-ansi
 
 FROM builder AS app
