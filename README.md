@@ -17,25 +17,25 @@ I have documented some of my thought process and engineering decisions while cre
 
 ## Requirements
 
--   [Python](https://www.python.org/) 3.9+
--   [poetry](https://python-poetry.org/docs/)
--   [PostgreSQL](https://www.postgresql.org/)
+- [Python](https://www.python.org/) 3.9+
+- [poetry](https://python-poetry.org/docs/)
+- [PostgreSQL](https://www.postgresql.org/)
 
 ## Database
 
--   Make sure you have a running instance of the latest PostgreSQL in your local machine
--   Example to spin up a PostgreSQL Docker instance locally
+- Make sure you have a running instance of the latest PostgreSQL in your local machine
+- Example to spin up a PostgreSQL Docker instance locally
 
-    ```sh
-    docker run -d --name dpostgres -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust postgres:latest
-    ```
+  ```sh
+  docker run -d --name dpostgres -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust postgres:latest
+  ```
 
--   Create a new database name as `burplist`
--   Ensure that `pg_trgm` is installed as your PostgreSQL extension
+- Create a new database name as `burplist`
+- Ensure that `pg_trgm` is installed as your PostgreSQL extension
 
-    ```sql
-    CREATE EXTENSION pg_trgm;
-    ```
+  ```sql
+  CREATE EXTENSION pg_trgm;
+  ```
 
 ## How to install
 
@@ -55,8 +55,8 @@ Before you begin your development work, make sure you have installed [pre-commit
 
 Some example useful invocations:
 
--   `pre-commit install`: Default invocation. Installs the pre-commit script alongside any existing git hooks.
--   `pre-commit install --install-hooks --overwrite`: Idempotently replaces existing git hook scripts with pre-commit, and also installs hook environments.
+- `pre-commit install`: Default invocation. Installs the pre-commit script alongside any existing git hooks.
+- `pre-commit install --install-hooks --overwrite`: Idempotently replaces existing git hook scripts with pre-commit, and also installs hook environments.
 
 ## Optional: Environment variables
 
@@ -82,11 +82,11 @@ docker start dpostgres
 ## Optional: Using Docker
 
 ```sh
-# make build
-docker build -t burplist-frontend .
+# build docker image.
+make build
 
-# Run the image in a container
-docker run -d -p 8080:8080 --name burplist-frontend burplist-frontend
+# run local development server in docker.
+make run
 ```
 
 Your server should be live at to http://localhost:8080.
