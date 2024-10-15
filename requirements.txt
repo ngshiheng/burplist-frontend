@@ -269,7 +269,7 @@ simplejson==3.18.0 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:e84bd1c29e83ec74a95de070473742eb52d08502f2428eff5751671081e0a0a6 \
     --hash=sha256:f0e12bdafdf7e32c5ad4a073e325ea0d659d4277af8b3d8eccf3101c56879619 \
     --hash=sha256:fd56a9e0c63a1f9c37621fe298c77795aefd2a26dca80dcae27688586c40b4bb
-sqlalchemy==1.4.47 ; python_version >= "3.9" and python_version < "4.0" \
+sqlalchemy==2.0.36 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:03be6f3cb66e69fb3a09b5ea89d77e4bc942f3bf84b207dba84666a26799c166 \
     --hash=sha256:048509d7f3ac27b83ad82fd96a1ab90a34c8e906e4e09c8d677fc531d12c23c5 \
     --hash=sha256:07764b240645627bc3e82596435bd1a1884646bfc0721642d24c26b12f1df194 \
