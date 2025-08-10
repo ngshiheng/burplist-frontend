@@ -194,8 +194,9 @@ psycopg2-binary==2.9.6 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:f6a88f384335bb27812293fdb11ac6aee2ca3f51d3c7820fe03de0a304ab6249 \
     --hash=sha256:f81e65376e52f03422e1fb475c9514185669943798ed019ac50410fb4c4df232 \
     --hash=sha256:ffe9dc0a884a8848075e576c1de0290d85a533a9f6e9c4e564f19adf8f6e54a7
-pyecharts==1.9.1 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:5a4cab66bacfc644919ef652bc9e9985f532aba832af9f2992e8e3802eb718e2
+pyecharts==2.0.8; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:8b711ba139f39f89bc1b2a869d7adda89dc74c910d158a1f9063109fe66bc985 \
+    --hash=sha256:908dbd939862dd3c76bb53697bdb41d3cdd0b5ba48ca69a76a6085d0aa27dbdf
 python-dotenv==0.21.0 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:1684eb44636dd462b66c3ee016599815514527ad99965de77f43e0944634a7e5 \
     --hash=sha256:b77d08274639e3d34145dfa6c7008e66df0f04b7be7a75fd0d5292c191d79045
