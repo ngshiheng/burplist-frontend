@@ -199,8 +199,9 @@ psycopg2-binary==2.9.12; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:f921f3cd87035ef7df233383011d7a53ea1d346224752c1385f1edfd790ceb6a \
     --hash=sha256:fb1828cf3da68f99e45ebce1355d65d2d12b6a78fb5dfb16247aad6bdef5f5d2 \
     --hash=sha256:ffdd7dc5463ccd61845ac37b7012d0f35a1548df9febe14f8dd549be4a0bc81e
-pyecharts==1.9.1 ; python_version >= "3.9" and python_version < "4.0" \
-    --hash=sha256:5a4cab66bacfc644919ef652bc9e9985f532aba832af9f2992e8e3802eb718e2
+pyecharts==2.1.0; python_version >= "3.9" and python_version < "4.0" \
+    --hash=sha256:077f8205390aea705b8cc0be9d0c09916a2c060e9e5c8d9c9d11b7d8f4bdc1da \
+    --hash=sha256:5cba0aa06af3d9390a1fed18aa4e76acd7bdfb323cdf131874f46eaf7e78c6c7
 python-dotenv==0.21.0 ; python_version >= "3.9" and python_version < "4.0" \
     --hash=sha256:1684eb44636dd462b66c3ee016599815514527ad99965de77f43e0944634a7e5 \
     --hash=sha256:b77d08274639e3d34145dfa6c7008e66df0f04b7be7a75fd0d5292c191d79045
